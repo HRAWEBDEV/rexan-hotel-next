@@ -1,0 +1,480 @@
+/* root */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+ font-size: 16px;
+ /* colors-pallete */
+ --cl-black: 0, 0, 0;
+ --cl-white: 255, 255, 255;
+ --cl-white-25: 253, 253, 253;
+ --cl-white-50: 240, 241, 242;
+ --cl-white-80: 243, 243, 243;
+ --cl-white-90: 248, 248, 248;
+ --cl-white-100: 203, 203, 203;
+ --cl-white-120: 234, 234, 232;
+ --cl-white-150: 248, 248, 248;
+ --cl-white-200: 221, 221, 221;
+ --cl-white-250: 200, 200, 200;
+ --cl-white-300: 181, 181, 181;
+ --cl-gray-900: 108, 117, 124;
+ --cl-cyan-500: 82, 167, 195;
+ --cl-cyan-600: 76, 109, 119;
+ --cl-green-700: 34, 47, 52;
+ --cl-green-900: 25, 34, 37;
+ --cl-yellow-400: 147, 135, 108;
+ --cl-yellow-500: 223, 195, 134;
+ --cl-yellow-600: 180, 151, 85;
+ --cl-yellow-700: 145, 120, 63;
+ --cl-orange-600: 215, 151, 74;
+ --cl-red-700: 119, 0, 0;
+ --cl-gold-accent: rgb(var(--cl-yellow-600));
+ --cl-red-accent: rgb(var(--cl-red-700));
+ --cl-light-fn: rgb(var(--cl-white));
+ --cl-dark-fn: #444;
+ /* --fn-english-family: ; */
+ --fn-fa-persian: 'opt-fn', Arial, Helvetica, sans-serif;
+ --fn-fa-arabic: 'Noto Sans Arabic', 'Noto Naskh Arabic', 'opt-fn', Arial,
+  Helvetica, sans-serif;
+ --fn-fa-english: 'Roboto', Arial, Helvetica, sans-serif;
+ --fn-fa-txt: var(--fn-fa-persian);
+ --fn-fa-title: var(--fn-fa-persian);
+ --fn-w-ultra-light: 200;
+ --fn-w-light: 300;
+ --fn-w-normal: 400;
+ --fn-w-medium: 500;
+ --fn-w-bold: 900;
+ --fn-w-text: var(--fn-w-normal);
+ --fn-w-sub-title: var(--fn-w-normal);
+ --fn-w-title: var(--fn-w-medium);
+ --fn-size-txt: clamp(0.75rem, 0.00083 * 100vw + 0.75rem, 5rem);
+ --txt-line-height: 1.5;
+ --fn-size-1-5: 1.5em;
+ /* z-index */
+ /* spacing */
+ --gap: 1em;
+ --gap-small: calc(var(--gap) / 2);
+ --gap-2x: calc(var(--gap) * 2);
+ --gap-4x: calc(var(--gap) * 4);
+ --gap-larger: 1.5em;
+ /* radius */
+ --br-ra-main: 0.5em;
+ /* transition */
+ --tr-normal: 0.4s ease;
+ --tr-all-normall: all 0.4s ease;
+ /* btn */
+ --comp-btn-bg: var(--cl-light-fn);
+ --comp-btn-cl: var(--cl-gold-accent);
+ --comp-btn-br-cl: var(--cl-gold-accent);
+ --comp-btn-hr-cl: var(--cl-light-fn);
+ --comp-btn-hr-br-cl: var(--cl-gold-accent);
+ --comp-btn-hr-bg: var(--cl-gold-accent);
+ /* aside */
+ --master-aside-bg: rgb(var(--cl-white-50));
+ /* fm elements */
+ --comp-fm-input-bg: rgb(var(--cl-green-900));
+ --comp-fm-input-cl: var(--cl-light-fn);
+ --comp-fm-input-br: rgb(var(--cl-green-900));
+ --comp-fm-label-cl: var(--cl-dark-fn);
+ --comp-fm-indicator-cl: var(--cl-light-fn);
+ --comp-fm-hr-br: var(--cl-gold-accent);
+ --comp-fm-input-hr-cl: var(--cl-gold-accent);
+ --comp-fm-input-hr-bg: rgb(var(--cl-green-900), 0.9);
+ /* section offset */
+ --section-block-offset: 4em;
+ --section-inline-offset: 4em;
+ /* zi */
+ --zi-map: 1;
+ --zi-select-list: 2;
+ --zi-language-select: 3;
+ --zi-card: 4;
+ --zi-filters: 10;
+ --zi-slide-show: 99;
+ --zi-master-nav: 100;
+ --zi-modal-backdrop: 101;
+ --zi-modal: 102;
+ --zi-refresh-loader: 103;
+ --zi-loader: 104;
+ /* scroll */
+ --scroll-cl: rgb(var(--cl-green-900), 0.9);
+ --scroll-cl-hr: rgb(var(--cl-green-900));
+ --scroll-width: 0.5em;
+ --scroll-heigth: 0.5em;
+}
+
+@media (max-width: 65em) {
+ :root {
+  --section-block-offset: var(--gap-2x);
+  --section-inline-offset: var(--gap);
+ }
+}
+/* font setup */
+@font-face {
+ font-family: 'opt-fn';
+ src: local('IRANSansWebFaNum UltraLight'), local('IRANSansWebFaNum-UltraLight'),
+  url('/fonts/fa/IRANSansWebFaNum-UltraLight.woff2') format('woff2'),
+  url('/fonts/fa/IRANSansWebFaNum-UltraLight.woff') format('woff');
+ font-weight: 200;
+ font-style: normal;
+ font-display: swap;
+}
+
+@font-face {
+ font-family: 'opt-fn';
+ src: local('IRANSansWebFaNum Light'), local('IRANSansWebFaNum-Light'),
+  url('/fonts/fa/IRANSansWebFaNum-Light.woff2') format('woff2'),
+  url('/fonts/fa/IRANSansWebFaNum-Light.woff') format('woff');
+ font-weight: 300;
+ font-style: normal;
+ font-display: swap;
+}
+
+@font-face {
+ font-family: 'opt-fn';
+ src: local('IRANSansWebFaNum'),
+  url('/fonts/fa/IRANSansWebFaNum.woff2') format('woff2'),
+  url('/fonts/fa/IRANSansWebFaNum.woff') format('woff');
+ font-weight: normal;
+ font-style: normal;
+ font-display: swap;
+}
+
+@font-face {
+ font-family: 'opt-fn';
+ src: local('IRANSansWebFaNum Medium'), local('IRANSansWebFaNum-Medium'),
+  url('/fonts/fa/IRANSansWebFaNum-Medium.woff2') format('woff2'),
+  url('/fonts/fa/IRANSansWebFaNum-Medium.woff') format('woff');
+ font-weight: 500;
+ font-style: normal;
+ font-display: swap;
+}
+
+@font-face {
+ font-family: 'opt-fn';
+ src: local('IRANSansWebFaNum Black'), local('IRANSansWebFaNum-Black'),
+  url('/fonts/fa/IRANSansWebFaNum-Black.woff2') format('woff2'),
+  url('/fonts/fa/IRANSansWebFaNum-Black.woff') format('woff');
+ font-weight: 900;
+ font-style: normal;
+ font-display: swap;
+}
+
+@font-face {
+ font-family: 'opt-fn';
+ src: local('IRANSansWebFaNum Bold'), local('IRANSansWebFaNum-Bold'),
+  url('/fonts/fa/IRANSansWebFaNum-Bold.woff2') format('woff2'),
+  url('/fonts/fa/IRANSansWebFaNum-Bold.woff') format('woff');
+ font-weight: bold;
+ font-style: normal;
+ font-display: swap;
+}
+/* body */
+::selection {
+ background-color: var(--cl-gold-accent);
+ color: rgb(var(--cl-white));
+}
+
+::-webkit-scrollbar {
+ width: var(--scroll-width);
+ height: var(--scroll-heigth);
+}
+
+::-webkit-scrollbar-track {
+ background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+ background-color: var(--scroll-cl);
+}
+
+::-webkit-scrollbar-thumb:hover {
+ background-color: var(--scroll-cl-hr);
+}
+
+*,
+*::after,
+*::before {
+ box-sizing: border-box;
+ padding: 0;
+ margin: 0;
+ font-family: inherit;
+ color: inherit;
+}
+
+html,
+body {
+ width: 100%;
+ height: 100%;
+}
+
+body {
+ background-color: var(--cl-light-fn);
+ color: var(--cl-dark-fn);
+ font-family: var(--fn-fa-txt);
+ font-weight: var(--fn-w-text);
+ font-size: var(--fn-size-txt);
+ line-height: var(--txt-line-height);
+ overflow: hidden;
+ user-select: none;
+}
+
+body[lang='EN'] {
+ --fn-w-text: 400;
+ --fn-w-sub-title: 400;
+ --fn-w-title: 700;
+ --fn-w-light: 400;
+ --fn-w-normal: 400;
+ --fn-w-medium: 700;
+ font-family: var(--fn-fa-english);
+}
+body[lang='AR'] {
+ --fn-size-txt: clamp(0.75rem, 0.00083 * 100vw + 0.8rem, 5rem);
+ --fn-w-text: 400;
+ --fn-w-sub-title: 400;
+ --fn-w-title: 700;
+ --fn-w-light: 400;
+ --fn-w-normal: 400;
+ --fn-w-medium: 700;
+ font-family: var(--fn-fa-arabic);
+}
+/* element reset */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+ font-weight: var(--fn-w-title);
+}
+
+h1 {
+ font-size: 1.6em;
+}
+
+h2 {
+ font-size: 1.4em;
+}
+
+h3 {
+ font-size: 1.2em;
+}
+
+h4 {
+ font-size: 1.1em;
+}
+
+h5 {
+ font-size: 1.15em;
+}
+
+h5 {
+ font-size: 1em;
+}
+
+a {
+ display: inline-block;
+ cursor: pointer;
+ text-decoration: none;
+ color: inherit;
+}
+
+button {
+ background-color: transparent;
+ border: none;
+ cursor: pointer;
+ font-weight: var(--fn-w-sub-title);
+ font-size: inherit;
+}
+
+button,
+a:is(:focus, :hover) {
+ outline-color: transparent;
+}
+
+ul {
+ list-style: none;
+}
+
+img {
+ display: inline-block;
+ max-width: 100%;
+ max-height: 100%;
+}
+/* utility */
+/* structure */
+.util-d-flex {
+ display: flex;
+}
+
+.util-d-in-flex {
+ display: inline-flex;
+}
+
+.util-a-i-s {
+ align-items: flex-start;
+}
+
+.util-a-i-c {
+ align-items: center;
+}
+
+.util-j-i-s {
+ justify-content: center;
+}
+
+.util-d-grid {
+ display: grid;
+}
+
+.util-small-gap {
+ gap: var(--gap-small);
+}
+
+.util-gap {
+ gap: var(--gap);
+}
+
+.util-read-txt {
+ line-height: 2;
+ text-align: justify;
+}
+
+.util-txt-start {
+ text-align: start;
+}
+/* spacing */
+.util-pad-b-small {
+ padding-bottom: var(--gap-small);
+}
+
+.util-pad {
+ padding: var(--gap);
+}
+
+.util-pad-2x {
+ padding: var(--gap-2x);
+}
+
+.util-pad-b {
+ padding-bottom: var(--gap);
+}
+
+.util-pad-b-2x {
+ padding-bottom: var(--gap-2x);
+}
+
+.util-pad-b-4x {
+ padding-bottom: var(--gap-4x);
+}
+
+.util-mar-b-small {
+ margin-bottom: var(--gap-small);
+}
+
+.util-mar-b {
+ margin-bottom: var(--gap);
+}
+
+.util-mar-b-2x {
+ margin-bottom: var(--gap-2x);
+}
+
+.util-mar-b-4x {
+ margin-bottom: var(--gap-4x);
+}
+/* hover */
+.util-hover-cl--gold:is(:hover, :focus) {
+ color: var(--cl-gold-accent) !important;
+}
+
+.util-hover-cl--red:is(:hover, :focus) {
+ color: var(--cl-red-accent) !important;
+}
+
+.util-hover-bg--gold:is(:hover, :focus) {
+ background-color: var(--cl-gold-accent) !important;
+}
+
+.util-hover-bg--red:is(:hover, :focus) {
+ background-color: var(--cl-red-accent) !important;
+}
+/* tr */
+.util-tr-all--regular {
+ transition: var(--tr-all-normall);
+}
+/* txt */
+.util-txt-medium {
+ font-weight: var(--fn-w-medium);
+}
+
+.util-txt-larger {
+ font-size: larger;
+}
+
+.util-txt-center {
+ text-align: center;
+}
+
+.util-fn-1-5 {
+ font-size: var(--fn-size-1-5);
+}
+
+.util-fn-1-8 {
+ font-size: 1.8em;
+}
+
+.util-txt-red {
+ color: var(--cl-red-accent);
+}
+
+.util-txt-gold {
+ color: var(--cl-gold-accent);
+}
+
+.util-ln-1 {
+ line-height: 1;
+}
+
+.util-ln-0 {
+ line-height: 0;
+}
+/* */
+body[dir='ltr'] .util-icon-flip {
+ transform: rotateZ(180deg);
+}
+/*  */
+body[dir='ltr'] .util-icon-flip {
+ transform: rotateY(180deg);
+}
+/* * header wing */
+.header-wing {
+ --wing-bg: var(--comp-header-wing-bg, var(--cl-red-700));
+ position: relative;
+ display: inline-block;
+ min-width: 4em;
+ height: 1px;
+ background-image: linear-gradient(
+  270deg,
+  rgba(var(--wing-bg), 1) 0%,
+  rgba(var(--wing-bg), 0.1) 100%
+ );
+}
+
+.header-wing.start {
+ transform: rotate(180deg);
+}
+
+body[dir='ltr'] .header-wing {
+ transform: rotate(180deg);
+}
+
+body[dir='ltr'] .header-wing.start {
+ transform: rotate(0deg);
+}
+
+@media (max-width: 45em) {
+ .header-wing {
+  display: none;
+ }
+}

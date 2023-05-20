@@ -1,0 +1,348 @@
+@font-face {
+  font-family: 'icomoon';
+  src:
+    url('fonts/icomoon.ttf?7226pz') format('truetype'),
+    url('fonts/icomoon.woff?7226pz') format('woff'),
+    url('fonts/icomoon.svg?7226pz#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="opt-"], [class*=" opt-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.opt-eye-slash:before {
+  content: "\e96a";
+}
+.opt-eye:before {
+  content: "\e969";
+}
+.opt-Rexan-Hotel-Logo1:before {
+  content: "\e968";
+  color: #b49755;
+}
+.opt-envelope:before {
+  content: "\e967";
+}
+.opt-apartment:before {
+  content: "\e966";
+}
+.opt-air-conditioning1:before {
+  content: "\e93b";
+}
+.opt-bathrobes:before {
+  content: "\e93c";
+}
+.opt-bathroom:before {
+  content: "\e93d";
+}
+.opt-bathtub:before {
+  content: "\e93e";
+}
+.opt-carpet:before {
+  content: "\e93f";
+}
+.opt-carpet-flooring-cover:before {
+  content: "\e940";
+}
+.opt-central-cooling:before {
+  content: "\e941";
+}
+.opt-central-heating:before {
+  content: "\e942";
+}
+.opt-dg-window:before {
+  content: "\e943";
+}
+.opt-drawer:before {
+  content: "\e944";
+}
+.opt-electric-kettle:before {
+  content: "\e945";
+}
+.opt-electric-lock:before {
+  content: "\e946";
+}
+.opt-fire-extin-system:before {
+  content: "\e947";
+}
+.opt-furniture:before {
+  content: "\e948";
+}
+.opt-games1:before {
+  content: "\e949";
+}
+.opt-hairdryer1:before {
+  content: "\e94a";
+}
+.opt-hals1:before {
+  content: "\e94b";
+}
+.opt-hanger:before {
+  content: "\e94c";
+}
+.opt-internal-movie:before {
+  content: "\e94d";
+}
+.opt-iptv1:before {
+  content: "\e94e";
+}
+.opt-iranian-toilet:before {
+  content: "\e94f";
+}
+.opt-lampshade:before {
+  content: "\e950";
+}
+.opt-make-up-table:before {
+  content: "\e951";
+}
+.opt-mineral-water:before {
+  content: "\e952";
+}
+.opt-minibar1:before {
+  content: "\e953";
+}
+.opt-nescafe:before {
+  content: "\e954";
+}
+.opt-phone:before {
+  content: "\e955";
+}
+.opt-power-switch:before {
+  content: "\e956";
+}
+.opt-refridgerator:before {
+  content: "\e957";
+}
+.opt-room-services:before {
+  content: "\e958";
+}
+.opt-safe-box:before {
+  content: "\e959";
+}
+.opt-shower:before {
+  content: "\e95a";
+}
+.opt-sleeper-sofa1:before {
+  content: "\e95b";
+}
+.opt-slippers:before {
+  content: "\e95c";
+}
+.opt-smart-card:before {
+  content: "\e95d";
+}
+.opt-table-1:before {
+  content: "\e95e";
+}
+.opt-table-2:before {
+  content: "\e95f";
+}
+.opt-table-chairs:before {
+  content: "\e960";
+}
+.opt-tea-bag:before {
+  content: "\e961";
+}
+.opt-toilet-restroom-forigen:before {
+  content: "\e962";
+}
+.opt-towel:before {
+  content: "\e963";
+}
+.opt-transfer1:before {
+  content: "\e964";
+}
+.opt-tv:before {
+  content: "\e965";
+}
+.opt-grid-view:before {
+  content: "\e939";
+}
+.opt-list-view:before {
+  content: "\e93a";
+}
+.opt-limit:before {
+  content: "\e937";
+}
+.opt-right-hold:before {
+  content: "\e938";
+}
+.opt-air-conditioning:before {
+  content: "\e92f";
+}
+.opt-games:before {
+  content: "\e930";
+}
+.opt-hairdryer:before {
+  content: "\e931";
+}
+.opt-hals:before {
+  content: "\e932";
+}
+.opt-iptv:before {
+  content: "\e933";
+}
+.opt-minibar:before {
+  content: "\e934";
+}
+.opt-sleeper-sofa:before {
+  content: "\e935";
+}
+.opt-transfer:before {
+  content: "\e936";
+}
+.opt-shopping-cart:before {
+  content: "\e92e";
+}
+.opt-Rexan-Hotel-Logo:before {
+  content: "\e92d";
+}
+.opt-lunar-month-1:before {
+  content: "\e92c";
+}
+.opt-vacant-room:before {
+  content: "\e92b";
+}
+.opt-lunar-month-10:before {
+  content: "\e920";
+}
+.opt-lunar-month-2:before {
+  content: "\e921";
+}
+.opt-lunar-month-3:before {
+  content: "\e922";
+}
+.opt-lunar-month-4:before {
+  content: "\e923";
+}
+.opt-lunar-month-5:before {
+  content: "\e924";
+}
+.opt-lunar-month-6:before {
+  content: "\e925";
+}
+.opt-lunar-month-7:before {
+  content: "\e926";
+}
+.opt-lunar-month-8:before {
+  content: "\e927";
+}
+.opt-lunar-month-9:before {
+  content: "\e928";
+}
+.opt-lunar-month-11:before {
+  content: "\e929";
+}
+.opt-lunar-month-12:before {
+  content: "\e92a";
+}
+.opt-times-circle:before {
+  content: "\e91f";
+}
+.opt-trash-can:before {
+  content: "\e91e";
+}
+.opt-checkmark:before {
+  content: "\e91d";
+}
+.opt-callender-day-frame:before {
+  content: "\e91c";
+}
+.opt-a-facebook-f:before {
+  content: "\e905";
+}
+.opt-a-instagram:before {
+  content: "\e906";
+}
+.opt-airport-pickup:before {
+  content: "\e907";
+}
+.opt-a-phone-alt:before {
+  content: "\e908";
+}
+.opt-a-telegram-plane:before {
+  content: "\e909";
+}
+.opt-bbq-party:before {
+  content: "\e90a";
+}
+.opt-city-guide:before {
+  content: "\e90b";
+}
+.opt-cofee-shop:before {
+  content: "\e90c";
+}
+.opt-fastfood:before {
+  content: "\e90d";
+}
+.opt-ico-period-medium:before {
+  content: "\e90e";
+}
+.opt-ico-period-perfect:before {
+  content: "\e90f";
+}
+.opt-ico-period-usualy:before {
+  content: "\e910";
+}
+.opt-ico-period-wow:before {
+  content: "\e911";
+}
+.opt-ico-r:before {
+  content: "\e912";
+}
+.opt-luxury-room:before {
+  content: "\e913";
+}
+.opt-menu-bars:before {
+  content: "\e914";
+}
+.opt-menu-times:before {
+  content: "\e915";
+}
+.opt-more:before {
+  content: "\e916";
+}
+.opt-pool:before {
+  content: "\e917";
+}
+.opt-resturant:before {
+  content: "\e918";
+}
+.opt-wifi:before {
+  content: "\e919";
+}
+.opt-telephone-circle:before {
+  content: "\e904";
+}
+.opt-arrow-left:before {
+  content: "\e91a";
+}
+.opt-arrow-right:before {
+  content: "\e91b";
+}
+.opt-arrow-down:before {
+  content: "\e900";
+}
+.opt-facebook-circle:before {
+  content: "\e901";
+}
+.opt-instagram-circle:before {
+  content: "\e902";
+}
+.opt-telegram-circle:before {
+  content: "\e903";
+}
