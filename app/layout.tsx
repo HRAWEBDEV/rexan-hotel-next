@@ -1,3 +1,4 @@
+import '../public/icons/style.css';
 import './styles/reset.scss';
 import './styles/layout.scss';
 export const metadata = {
