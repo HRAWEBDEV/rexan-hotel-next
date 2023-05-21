@@ -8,9 +8,7 @@
  border-radius: var(--br-ra-main);
 }
 
-.comp-btn:not(.no-hover):is(:hover, :focus),
-comp-button.is-selected .comp-btn,
-comp-link.is-selected .comp-btn {
+.comp-btn:not(.no-hover):is(:hover, :focus, .is-selected) {
  color: var(--comp-btn-hr-cl);
  background-color: var(--comp-btn-hr-bg);
  border: 1px solid var(--comp-btn-hr-br-cl);
@@ -50,7 +48,14 @@ comp-link.is-selected .comp-btn {
 .comp-btn:not(.no-hover):is(:hover, :focus) .comp-btn__ext {
  border-inline-start: 1px solid var(--comp-btn-hr-cl);
 }
-
+.comp-btn.icon {
+ --comp-btn-bg: transparent;
+ --comp-btn-cl: transparent;
+ --comp-btn-br-cl: transparent;
+ --comp-btn-hr-cl: transparent;
+ --comp-btn-hr-br-cl: transparent;
+ --comp-btn-hr-bg: transparent;
+}
 .comp-btn.normal {
  position: relative;
  --comp-btn-bg: transparent;

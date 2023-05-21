@@ -3,4 +3,5 @@ export type TCompButtonVariants =
  | 'gold'
  | 'confirm'
  | 'red'
- | 'gold-outline';
+ | 'gold-outline'
+ | 'icon';

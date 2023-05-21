@@ -49,7 +49,10 @@
 .master__header.home-page {
  padding-inline-start: 0;
 }
-
+.master-aside__logo {
+ --comp-btn-block-padding: 0;
+ --comp-btn-inline-padding: 0;
+}
 .master__header.home-page .master-aside__logo {
  width: var(--master-aside-width);
  text-align: center;
