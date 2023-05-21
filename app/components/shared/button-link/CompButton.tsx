@@ -1,20 +1,22 @@
-import React, { HTMLProps, HtmlHTMLAttributes, FC } from 'react';
+import { FC, HTMLProps, HTMLAttributes } from 'react';
+import { TCompButtonVariants } from './types';
+
 interface IButtonComponentProps
  extends HTMLProps<HTMLButtonElement>,
-  HtmlHTMLAttributes<HTMLButtonElement> {
+  HTMLAttributes<HTMLButtonElement> {
  type?: 'button' | 'reset' | 'submit';
  withLogo?: boolean;
- buttonType?: 'normal' | 'gold' | 'confirm' | 'red' | 'gold-outline';
+ buttonType?: TCompButtonVariants;
 }
 
-const Button: FC<IButtonComponentProps> = ({
+const CompButton: FC<IButtonComponentProps> = function ({
  children,
  className,
  buttonType,
  type = 'button',
  withLogo = false,
  ...btnProps
-}) => {
+}) {
  return (
   <>
    <button
@@ -38,4 +40,4 @@ const Button: FC<IButtonComponentProps> = ({
  );
 };
 
-export default Button;
+export default CompButton;

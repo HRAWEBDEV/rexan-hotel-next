@@ -7,7 +7,7 @@ interface IMasterLayoutProps {
  withMasterFooter?: boolean;
  withMasterHeader?: boolean;
  withMasterSidenav?: boolean;
- children: React.ReactNode;
+ children?: React.ReactNode;
 }
 // *
 export default function MasterLayout({
