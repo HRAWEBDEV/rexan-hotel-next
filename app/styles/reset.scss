@@ -81,6 +81,8 @@
  --comp-fm-hr-br: var(--cl-gold-accent);
  --comp-fm-input-hr-cl: var(--cl-gold-accent);
  --comp-fm-input-hr-bg: rgb(var(--cl-green-900), 0.9);
+ --comp-fm-input-focus-cl: var(--cl-gold-accent);
+ --comp-fm-input-invalid-cl: var(--cl-red-accent);
  /* section offset */
  --section-block-offset: 4em;
  --section-inline-offset: 4em;
@@ -423,7 +425,9 @@ img {
 .util-fn-1-8 {
  font-size: 1.8em;
 }
-
+.util-fn-2 {
+ font-size: 2em;
+}
 .util-txt-red {
  color: var(--cl-red-accent);
 }

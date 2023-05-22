@@ -1,35 +1,47 @@
 import {
  FC,
  useState,
+ useEffect,
  MouseEventHandler,
  HTMLAttributes,
  HTMLProps,
+ useRef,
 } from 'react';
-import { ICompInputsBaseProps, TSelectOption } from './types';
+import { ICompInputsBaseProps, TSelectOption, TSelectVariants } from './types';
 // *
 interface ICompSelectProps
  extends ICompInputsBaseProps,
   HTMLAttributes<HTMLSelectElement>,
   HTMLProps<HTMLSelectElement> {
  options?: TSelectOption[];
+ openOptionsList?: boolean;
+ variants?: TSelectVariants;
  onChangeOption?: (option: TSelectOption) => void;
 }
 // *
 const CompSelect: FC<ICompSelectProps> = ({
  tools,
- activeClear,
  onClear,
  value,
  fieldsetClassName,
- options = [],
  onChangeOption,
  label,
  className,
+ options = [],
+ variants = 'select',
+ activeClear = true,
+ openOptionsList = false,
  ...selectProps
 }) => {
+ const [isFocused, setIsFocused] = useState(false);
  const [isOptionsListOpen, setIsOptionsListOpen] = useState(false);
+ const inputRef = useRef<HTMLDivElement>(null);
+ const toggleOptionList = (action?: boolean) => {
+  setIsOptionsListOpen((state) => (action != undefined ? action : !state));
+ };
  const onSelectClick: MouseEventHandler<HTMLDivElement> = (e) => {
-  setIsOptionsListOpen((state) => !state);
+  if (!isFocused) return;
+  toggleOptionList();
  };
  const onOptionClick = (option: TSelectOption) => {
   onChangeOption && onChangeOption(option);
@@ -37,23 +49,51 @@ const CompSelect: FC<ICompSelectProps> = ({
  const onClearClick: MouseEventHandler<HTMLButtonElement> = (e) => {
   onClear && onClear(e);
  };
- // *
+ // * on select focus
+ const onInputFocus = function () {
+  setIsFocused((state) => !state);
+  toggleOptionList();
+ };
+ const onInputBlur = function () {
+  setIsFocused((state) => !state);
+  toggleOptionList();
+ };
+ useEffect(() => {
+  inputRef.current?.addEventListener('focus', onInputFocus);
+  inputRef.current?.addEventListener('blur', onInputBlur);
+  return () => {
+   inputRef.current?.removeEventListener('blur', onInputBlur);
+   inputRef.current?.removeEventListener('focus', onInputFocus);
+  };
+ }, [isFocused]);
+ // * use effect controlling options list open or close state
+ useEffect(() => {
+  toggleOptionList(openOptionsList);
+ }, [openOptionsList]);
+ // * default select markup
  return (
   <fieldset
+   aria-expanded={isOptionsListOpen ? true : false}
    className={`comp-input__fieldset select${
     fieldsetClassName ? ' ' + fieldsetClassName : ''
    }`}
   >
    <div
-    className={`comp-input${className ? ' ' + className : ''}`}
-    onClick={onSelectClick}
+    ref={inputRef}
+    className={`comp-input${className ? ' ' + className : ''}${
+     value ? ' not-empty' : ''
+    }`}
+    onPointerDown={onSelectClick}
     tabIndex={0}
-   ></div>
+   >
+    {value}
+   </div>
+   <span className='comp-input__indicator'></span>
    <select {...selectProps} className='comp-input__select'>
     {options.map((option) => {
      return (
-      <option key={option.value} value={option.value}>
-       {option.value}
+      <option key={option} value={option}>
+       {option}
       </option>
      );
     })}
@@ -77,12 +117,12 @@ const CompSelect: FC<ICompSelectProps> = ({
       {options.map((option) => {
        return (
         <li
-         key={option.value}
-         onClick={() => onOptionClick(option)}
+         key={option}
+         onPointerDown={() => onOptionClick(option)}
          className='comp-combo__item'
          tabIndex={0}
         >
-         {option.value}
+         {option}
         </li>
        );
       })}

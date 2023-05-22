@@ -1,11 +1,11 @@
-import { ReactNode, FC, HTMLAttributes } from 'react';
+import { forwardRef, ReactNode, FC, HTMLAttributes } from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { TCompButtonVariants } from './types';
 interface LinkProps extends NextLinkProps, HTMLAttributes<HTMLAnchorElement> {
  children?: ReactNode;
  className?: string;
  withLogo?: boolean;
- linkType?: TCompButtonVariants;
+ vairiants?: TCompButtonVariants;
 }
 const CompLink: FC<LinkProps> = function ({
  href,
@@ -17,7 +17,7 @@ const CompLink: FC<LinkProps> = function ({
  children,
  withLogo,
  className,
- linkType,
+ vairiants,
  ...linkProps
 }) {
  return (
@@ -28,7 +28,7 @@ const CompLink: FC<LinkProps> = function ({
    shallow={shallow}
    locale={locale}
    className={`comp-btn${className ? ' ' + className : ''}${
-    linkType ? ' ' + linkType : ''
+    vairiants ? ' ' + vairiants : ''
    }`}
    {...linkProps}
    passHref

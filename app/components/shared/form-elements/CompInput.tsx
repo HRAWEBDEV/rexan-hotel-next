@@ -11,10 +11,9 @@ const CompInput: FC<ICompInputProps> = ({
  label,
  fieldsetClassName,
  className,
- activeClear = true,
  value,
  onClear,
- id,
+ activeClear = true,
  type = 'text',
  ...inputProps
 }) => {
@@ -37,9 +36,7 @@ const CompInput: FC<ICompInputProps> = ({
       className ? ' ' + className : ''
      }`}
     />
-    <label className='comp-check__label' htmlFor={id}>
-     {label}
-    </label>
+    <label className='comp-check__label'>{label}</label>
    </fieldset>
   );
  }
@@ -55,11 +52,12 @@ const CompInput: FC<ICompInputProps> = ({
     {...inputProps}
     type={type}
     value={value}
-    className={`comp-input${className ? ' ' + className : ''}`}
+    className={`comp-input${className ? ' ' + className : ''}${
+     value ? ' not-empty' : ''
+    }`}
    />
-   <label className='comp-input__label' htmlFor={id}>
-    {label}
-   </label>
+   <span className='comp-input__indicator'></span>
+   <label className='comp-input__label'>{label}</label>
    <div className='comp-input__tools'>
     {tools}
     {activeClear && value && (

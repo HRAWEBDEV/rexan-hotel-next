@@ -7,7 +7,7 @@ export default function MasterHeader() {
   <>
    <header className='master__header'>
     <div className='master__header-dash start'>
-     <CompLink linkType='icon' className='master-aside__logo' href={'/'}>
+     <CompLink vairiants='icon' className='master-aside__logo' href={'/'}>
       <svg
        version='1.1'
        id='Layer_1'

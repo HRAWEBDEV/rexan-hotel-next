@@ -1,8 +1,8 @@
 import '../public/icons/style.css';
 import './styles/reset.scss';
-import './styles/layout.scss';
 import './styles/button-link.scss';
 import './styles/form-elements.scss';
+import './styles/layout.scss';
 // *
 export const metadata = {
  title: 'rexan hotel',

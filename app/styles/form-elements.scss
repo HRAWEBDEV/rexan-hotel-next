@@ -119,12 +119,21 @@
  border-bottom: 1px solid rgb(var(--cl-white-300));
  padding: 0.3em;
  padding-inline-end: 2em;
+ min-width: 16em;
 }
-
+.comp-input__indicator {
+ position: absolute;
+ height: 1px;
+ background-color: var(--comp-fm-input-focus-cl);
+ bottom: 0;
+ width: 0;
+ left: 50%;
+ transform: translate(-50%);
+ transition: var(--tr-all-normall);
+}
 .comp-input__select {
  display: none;
 }
-
 .comp-input__label {
  position: absolute;
  inset-block-end: 0.2em;
@@ -135,20 +144,31 @@
  pointer-events: none;
  transition: var(--tr-all-normall);
 }
-
 .comp-input:focus {
  border-inline: 0;
  border-top: 0;
  outline: 0;
 }
-
+.comp-input:focus + .comp-input__indicator {
+ width: 100%;
+}
+.comp-input:focus ~ .comp-input__label {
+ color: var(--comp-fm-input-focus-cl);
+}
 .comp-input:focus ~ .comp-input__label,
-.ng-not-empty ~ .comp-input__label {
+.not-empty ~ .comp-input__label {
  inset-block-end: 2em;
  font-size: 0.9em;
 }
-
+.comp-input.is-invalid + .comp-input__indicator {
+ width: 100%;
+ color: var(--comp-fm-input-invalid-cl);
+}
+.comp-input.is-invalid ~ .comp-input__label {
+ color: var(--comp-fm-input-invalid-cl);
+}
 .comp-input__tools {
+ pointer-events: none;
  position: absolute;
  font-size: 1.5em;
  display: flex;
@@ -156,12 +176,13 @@
  inset-inline-end: 0;
  inset-block-end: 0.2em;
 }
-
+.comp-input__tools > button {
+ pointer-events: all;
+}
 .comp-input__tool {
  line-height: 0;
  color: var(--comp-input-tools-cl, inherit);
 }
-
 .comp-combo__options {
  position: absolute;
  border: 1px solid rgb(var(--cl-white-300));

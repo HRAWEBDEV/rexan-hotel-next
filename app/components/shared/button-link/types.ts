@@ -5,3 +5,4 @@ export type TCompButtonVariants =
  | 'red'
  | 'gold-outline'
  | 'icon';
+export type TCompButtonTypes = 'reset' | 'submit' | 'button';

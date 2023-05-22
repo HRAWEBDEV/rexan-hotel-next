@@ -1,29 +1,30 @@
 import { FC, HTMLProps, HTMLAttributes } from 'react';
-import { TCompButtonVariants } from './types';
+import { TCompButtonVariants, TCompButtonTypes } from './types';
 
 interface IButtonComponentProps
  extends HTMLProps<HTMLButtonElement>,
   HTMLAttributes<HTMLButtonElement> {
- type?: 'button' | 'reset' | 'submit';
+ type?: TCompButtonTypes;
  withLogo?: boolean;
- buttonType?: TCompButtonVariants;
+ vairiants?: TCompButtonVariants;
 }
 
 const CompButton: FC<IButtonComponentProps> = function ({
  children,
  className,
- buttonType,
+ vairiants,
  type = 'button',
  withLogo = false,
  ...btnProps
 }) {
+ console.log('button component');
  return (
   <>
    <button
     {...btnProps}
     type={type}
     className={`comp-btn${className ? ' ' + className : ''}${
-     buttonType ? ' ' + buttonType : ''
+     vairiants ? ' ' + vairiants : ''
     }`}
     tabIndex={0}
    >

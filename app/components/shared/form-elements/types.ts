@@ -6,4 +6,5 @@ export interface ICompInputsBaseProps {
  activeClear?: boolean;
  onClear?: MouseEventHandler<HTMLButtonElement>;
 }
-export type TSelectOption = { name: string; value: string };
+export type TSelectOption = string;
+export type TSelectVariants = 'select' | 'combo';
