@@ -12,6 +12,7 @@ const CompInput: FC<ICompInputProps> = ({
  fieldsetClassName,
  className,
  value,
+ id,
  onClear,
  activeClear = true,
  type = 'text',
@@ -36,7 +37,9 @@ const CompInput: FC<ICompInputProps> = ({
       className ? ' ' + className : ''
      }`}
     />
-    <label className='comp-check__label'>{label}</label>
+    <label className='comp-check__label' htmlFor={id}>
+     {label}
+    </label>
    </fieldset>
   );
  }

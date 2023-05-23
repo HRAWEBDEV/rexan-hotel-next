@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import MasterHeader from './MasterHeader';
 import MasterFooter from './MasterFooter';

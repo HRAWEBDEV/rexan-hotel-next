@@ -1,0 +1,32 @@
+.comp-image__wrapper {
+ display: inline-block;
+}
+
+.comp-image__wrapper {
+ position: relative;
+}
+
+.comp-image {
+ height: 100%;
+ width: 100%;
+ object-fit: cover;
+ object-position: center;
+}
+
+.comp-image__loading-wrapper {
+ display: grid;
+ place-content: center;
+ position: absolute;
+ inset: 0;
+ background-color: rgb(var(--cl-white));
+}
+
+.comp-image__loading {
+ --loading-size: 4em;
+ height: var(--loading-size);
+ width: var(--loading-size);
+}
+
+.comp-image__loading .loading-circle {
+ fill: var(--cl-red-accent);
+}

@@ -1,8 +1,20 @@
-import React from 'react';
-import Link from 'next/link';
+import React, { useState } from 'react';
 import CompLink from '../shared/button-link/CompLink';
 import CompButton from '../shared/button-link/CompButton';
+import MultiLngText from '../shared/translator/MultiLngText';
+import MasterNav from './MasterNav';
+import MasterCard from './MasterCard';
+import addClassName from '@/app/utils/addClass';
 export default function MasterHeader() {
+ const [navState, setNavState] = useState(false);
+ const [cardState, setCardState] = useState(false);
+ const onMasterNavCtClick = () => {
+  setNavState((state) => !state);
+ };
+ const onMasterCardCtClick = () => {
+  setCardState((state) => !state);
+ };
+ // *
  return (
   <>
    <header className='master__header'>
@@ -167,9 +179,32 @@ export default function MasterHeader() {
       </svg>
      </CompLink>
     </div>
-    <div className='master__header-dash end'></div>
-    <div className='master__nav-container'></div>
-    <div className='master-card__wrapper'></div>
+    <div className='master__header-dash end'>
+     <CompLink className='master__sign-in-ct' href={'#'} vairiants='gold'>
+      <MultiLngText text='ثبت نام و ورود'></MultiLngText>
+     </CompLink>
+     <CompLink className='master__sign-buy-ct' href={'#'} vairiants='gold'>
+      <MultiLngText text='خرید دوره'></MultiLngText>
+     </CompLink>
+     <CompButton
+      className={`master-nav__ct${addClassName(navState, 'is-selected')}`}
+      vairiants='gold'
+      onClick={onMasterNavCtClick}
+     >
+      <i className='comp-btn__icon opt-menu-bars'></i>
+     </CompButton>
+     <CompButton
+      className={`master-shop-card__ct${addClassName(
+       cardState,
+       'is-selected'
+      )}`}
+      onClick={onMasterCardCtClick}
+     >
+      <i className='comp-btn__icon opt-shopping-cart'></i>
+     </CompButton>
+    </div>
+    {navState && <MasterNav />}
+    {cardState && <MasterCard />}
    </header>
   </>
  );

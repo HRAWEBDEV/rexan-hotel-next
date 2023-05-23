@@ -38,6 +38,7 @@
 }
 
 .master__header-dash.end {
+ align-items: stretch;
  flex: 1;
 }
 
@@ -124,7 +125,6 @@
 .master__nav-container {
  --scroll-cl: rgb(var(--cl-yellow-500), 0.9);
  --scroll-cl-hr: rgb(var(--cl-yellow-500));
- display: none;
  position: fixed;
  background-color: rgb(var(--cl-black), 0.95);
  inset: 0;
