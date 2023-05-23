@@ -4,6 +4,7 @@ import CompButton from '../shared/button-link/CompButton';
 import MultiLngText from '../shared/translator/MultiLngText';
 import MasterNav from './MasterNav';
 import MasterCard from './MasterCard';
+import { AnimatePresence } from 'framer-motion';
 import addClassName from '@/app/utils/addClass';
 export default function MasterHeader() {
  const [navState, setNavState] = useState(false);
@@ -203,8 +204,10 @@ export default function MasterHeader() {
       <i className='comp-btn__icon opt-shopping-cart'></i>
      </CompButton>
     </div>
-    {navState && <MasterNav />}
-    {cardState && <MasterCard />}
+    <AnimatePresence>
+     {navState && <MasterNav />}
+     {cardState && <MasterCard />}
+    </AnimatePresence>
    </header>
   </>
  );

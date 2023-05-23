@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import CompLink from '../shared/button-link/CompLink';
 import MultiLngText from '../shared/translator/MultiLngText';
+import { motion } from 'framer-motion';
 // *
 interface IMasterCard {}
 
@@ -8,7 +9,12 @@ const MasterCard: FC<IMasterCard> = () => {
  // *
  return (
   <>
-   <div className='master-card__container'>
+   <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className='master-card__container'
+   >
     <div className='master-card__wrapper'>
      <div className='master-card__empty'>
       <i className='opt-shopping-cart'></i>
@@ -68,7 +74,7 @@ const MasterCard: FC<IMasterCard> = () => {
       <MultiLngText text='خرید' />
      </CompLink>
     </div>
-   </div>
+   </motion.div>
   </>
  );
 };

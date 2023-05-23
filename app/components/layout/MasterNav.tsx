@@ -1,14 +1,19 @@
 import { FC } from 'react';
 import CompLink from '../shared/button-link/CompLink';
 import MultiLngText from '../../components/shared/translator/MultiLngText';
-
+import { motion } from 'framer-motion';
 // *
 interface IMasterNavProps {}
 // *
 const MasterNav: FC<IMasterNavProps> = () => {
  return (
   <>
-   <div className='master__nav-container'>
+   <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className='master__nav-container'
+   >
     <nav className='master__nav'>
      <div className='master__nav-category'>
       <h3 className='master__nav-category-title'>
@@ -431,7 +436,7 @@ const MasterNav: FC<IMasterNavProps> = () => {
       </ul>
      </div>
     </nav>
-   </div>
+   </motion.div>
   </>
  );
 };
