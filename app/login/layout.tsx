@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import MasterLayout from '../components/layout/MasterLayout';
-import CompLink from '@/app/components/shared/button-link/CompLink';
 import styles from './layout.module.scss';
 const Layout = ({ children }: { children: ReactNode }) => {
  return (

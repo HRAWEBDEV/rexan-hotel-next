@@ -2,9 +2,9 @@ import { FC, useState } from 'react';
 import Image, { ImageProps } from 'next/image';
 import addClass from '../../../utils/addClass';
 // *
-interface ICompImg extends ImageProps {}
+export interface ICompImgProps extends ImageProps {}
 // *
-const CompImg: FC<ICompImg> = ({
+const CompImg: FC<ICompImgProps> = ({
  className,
  onLoad,
  onError,

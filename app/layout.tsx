@@ -17,9 +17,9 @@ export default function RootLayout({
 }) {
  return (
   <html lang='fa'>
-   {/* <head>
-    <link rel='icon' type='image/x-icon' href='' />
-   </head> */}
+   {/*<head>
+        <link rel='icon' type='image/x-icon' href='' />
+    </head>*/}
    <body dir='rtl'>{children}</body>
   </html>
  );

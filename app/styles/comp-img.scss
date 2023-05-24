@@ -1,5 +1,7 @@
 .comp-image__wrapper {
  display: inline-block;
+ width: 100%;
+ height: 100%;
 }
 
 .comp-image__wrapper {
@@ -29,4 +31,101 @@
 
 .comp-image__loading .loading-circle {
  fill: var(--cl-red-accent);
+}
+// * slider
+.comp-image__slider-container,
+.comp-image__slider-wrapper,
+.comp-image__slider-rail,
+.comp-image__slide {
+ width: 100%;
+ height: 100%;
+}
+
+.comp-image__slider-container,
+.comp-image__slider-wrapper {
+ position: relative;
+}
+
+.comp-image__slider-wrapper {
+ overflow: hidden;
+}
+
+.comp-image__slider-rail {
+ display: flex;
+ transition: var(--tr-all-normall);
+ transform: translateX(calc(var(--slider-state) * 100%));
+}
+
+body[dir='ltr'] .comp-image__slider-rail {
+ transform: translateX(calc(var(--slider-state) * -100%));
+}
+
+.comp-image__slide {
+ flex-shrink: 0;
+ opacity: 1;
+ transition: opacity 0.2s ease;
+}
+
+.comp-image__slide.fade-out {
+ opacity: 0;
+}
+
+.comp-image__slider-ct {
+ --ct-btn-size: 3.3em;
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
+ border-radius: 100%;
+ height: var(--ct-btn-size);
+ width: var(--ct-btn-size);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border: 1px solid var(--cl-light-fn);
+ color: var(--cl-light-fn);
+ background-color: rgb(var(--cl-black), 0.5);
+ transition: var(--tr-all-normall);
+}
+
+body[dir='ltr'] .comp-image__slider-ct {
+ transform: translateY(-50%) rotateY(180deg);
+}
+
+.comp-image__slider-ct:is(:hover, :focus) {
+ background-color: rgb(var(--cl-black), 1);
+}
+
+.comp-image__slider-ct > i {
+ font-size: calc(var(--ct-btn-size) - 1em);
+}
+
+.comp-image__slider-ct.start {
+ inset-inline-start: var(--gap);
+}
+
+.comp-image__slider-ct.end {
+ inset-inline-end: var(--gap);
+}
+
+.comp-image__slider-indicators {
+ position: absolute;
+ bottom: var(--gap);
+ left: 50%;
+ transform: translateX(-50%);
+ display: flex;
+ gap: var(--gap-small);
+}
+
+.comp-image__slider-indicator {
+ --indicator-size: 0.7em;
+ border-radius: var(--indicator-size);
+ width: var(--indicator-size);
+ height: var(--indicator-size);
+ background: var(--cl-light-fn);
+ transition: var(--tr-all-normall);
+ border: 1px solid var(--cl-red-accent);
+}
+
+.comp-image__slider-indicator:is(.is-selected) {
+ width: calc(var(--indicator-size) * 2);
 }

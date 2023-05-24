@@ -1,6 +1,11 @@
-import CompImg from '../imageLazyLoader/CompImg';
+import { FC } from 'react';
+import CompImg, { ICompImgProps } from '../imageLazyLoader/CompImg';
+import CompLink from '../button-link/CompLink';
+interface ICompSliderProps {
+ slides: ICompImgProps[];
+}
 
-const CompImgSlider = () => {
+const CompImgSlider: FC<ICompSliderProps> = ({ slides }) => {
  return (
   <>
    <div
@@ -10,9 +15,13 @@ const CompImgSlider = () => {
    >
     <div className='comp-image__slider-wrapper'>
      <div className='comp-image__slider-rail'>
-      <a role='slider slide' className='comp-image__slide'>
-       {/* <CompImg></CompImg> */}
-      </a>
+      {slides.map(({ id, ...slideProps }, index) => {
+       return (
+        <a role='slider slide' className='comp-image__slide'>
+         <CompImg key={id || index} id={id} {...slideProps}></CompImg>
+        </a>
+       );
+      })}
      </div>
      <button
       type='button'
