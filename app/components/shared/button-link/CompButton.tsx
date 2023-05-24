@@ -17,7 +17,6 @@ const CompButton: FC<IButtonComponentProps> = function ({
  withLogo = false,
  ...btnProps
 }) {
- console.log('button component');
  return (
   <>
    <button

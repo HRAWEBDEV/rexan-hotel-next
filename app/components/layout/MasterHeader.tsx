@@ -181,8 +181,13 @@ export default function MasterHeader() {
      </CompLink>
     </div>
     <div className='master__header-dash end'>
-     <CompLink className='master__sign-in-ct' href={'#'} vairiants='gold'>
-      <MultiLngText text='ثبت نام و ورود'></MultiLngText>
+     <CompLink
+      className='master__sign-in-ct'
+      prefetch={true}
+      href={'/login'}
+      vairiants='gold'
+     >
+      <MultiLngText text='ثبت نام / ورود'></MultiLngText>
      </CompLink>
      <CompLink className='master__sign-buy-ct' href={'#'} vairiants='gold'>
       <MultiLngText text='خرید دوره'></MultiLngText>
