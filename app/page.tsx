@@ -9,6 +9,8 @@ export default function Home() {
     <div className={styles['master__conatiner']}>
      <section className={styles['master__hero-section']}>
       <CompImgSlider
+       showNavigators={false}
+       showIndicators={false}
        slides={[
         {
          src: '/images/hotel-view.jpg',
