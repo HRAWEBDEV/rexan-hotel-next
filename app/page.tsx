@@ -234,6 +234,7 @@ export default function Home() {
          }
         >
          <CompImgSlider
+          activeSliderShow={true}
           slides={[
            {
             src: '/images/home/room-1.jpg',

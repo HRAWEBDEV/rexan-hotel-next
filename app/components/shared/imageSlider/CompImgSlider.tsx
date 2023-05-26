@@ -3,6 +3,8 @@ import { FC, useRef, useState, useEffect } from 'react';
 import CompImg, { ICompImgProps } from '../imageLazyLoader/CompImg';
 import addClass from '@/app/utils/addClass';
 interface ICompSliderProps {
+ activeSliderShow?: boolean;
+ sliderShowTimer?: number;
  initialSliderState?: number;
  slides: ICompImgProps[];
  showNavigators?: boolean;
@@ -10,21 +12,52 @@ interface ICompSliderProps {
 }
 
 const CompImgSlider: FC<ICompSliderProps> = ({
+ activeSliderShow = false,
+ sliderShowTimer = 3000,
  initialSliderState = 0,
  slides = [],
  showNavigators = true,
  showIndicators = true,
 }) => {
  const [sliderState, setSliderState] = useState(initialSliderState);
+ const [userChangedSlide, setUserChangedSlide] = useState(false);
+ const [sliderShowTimerId, setSliderShowTimerId] = useState<
+  NodeJS.Timer | number
+ >(0);
  const sliderContainerRef = useRef<HTMLDivElement>(null);
- const onNavigatorClick = (action: 'next' | 'prev') => {
+ const sliderRailRef = useRef<HTMLDivElement>(null);
+ const resetRailTransition = () => {
+  sliderRailRef.current?.style.setProperty('transition', '');
+ };
+ const continueSlides = (from: 'start' | 'end') => {
+  sliderRailRef.current?.style.setProperty('transition', 'none');
+  if (from == 'start') setSliderState(-1);
+  else setSliderState(slides.length);
+ };
+ const changeSlide = (action: 'next' | 'prev') => {
   if (action == 'next') {
-   sliderState < slides.length - 1
-    ? setSliderState((state) => (state += 1))
-    : '';
+   sliderState == slides.length - 1 && continueSlides('start');
+   setTimeout(() => {
+    resetRailTransition();
+    setSliderState((state) => (state += 1));
+   });
   } else {
-   sliderState > 0 ? setSliderState((state) => (state -= 1)) : '';
+   sliderState == 0 && continueSlides('end');
+   setTimeout(() => {
+    resetRailTransition();
+    setSliderState((state) => (state -= 1));
+   });
   }
+ };
+ const onIndicatorClick = (index: number) => {
+  setUserChangedSlide(true);
+  clearTimeout(sliderShowTimerId);
+  setSliderState(index);
+ };
+ const onNavigatorClick = (action: 'next' | 'prev') => {
+  setUserChangedSlide(true);
+  clearTimeout(sliderShowTimerId);
+  changeSlide(action);
  };
  const setNewSliderState = (newState: number) => {
   sliderContainerRef.current?.style.setProperty(
@@ -32,9 +65,30 @@ const CompImgSlider: FC<ICompSliderProps> = ({
    newState + ''
   );
  };
+ // * changing the slide
  useEffect(() => {
   setNewSliderState(sliderState);
- });
+ }, [sliderState]);
+ useEffect(() => {
+  if (activeSliderShow)
+   setSliderShowTimerId(
+    setTimeout(() => {
+     changeSlide('next');
+    }, sliderShowTimer)
+   );
+  return () => {
+   clearTimeout(sliderShowTimerId);
+  };
+ }, [activeSliderShow]);
+ useEffect(() => {
+  if (!activeSliderShow || userChangedSlide) return;
+  clearTimeout(sliderShowTimerId);
+  setSliderShowTimerId(
+   setTimeout(() => {
+    changeSlide('next');
+   }, sliderShowTimer)
+  );
+ }, [sliderState]);
  // *
  return (
   <>
@@ -45,7 +99,7 @@ const CompImgSlider: FC<ICompSliderProps> = ({
     ref={sliderContainerRef}
    >
     <div className='comp-image__slider-wrapper'>
-     <div className='comp-image__slider-rail'>
+     <div className='comp-image__slider-rail' ref={sliderRailRef}>
       {slides.map(({ id, ...slideProps }, index) => {
        return (
         <a
@@ -93,7 +147,7 @@ const CompImgSlider: FC<ICompSliderProps> = ({
            index == sliderState,
            'is-selected'
           )}`}
-          onClick={() => setSliderState(index)}
+          onClick={() => onIndicatorClick(index)}
          ></button>
         );
        })}
