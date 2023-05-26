@@ -1,5 +1,5 @@
-import CompLink from '../shared/button-link/CompLink';
-import MultiLngText from '../shared/translator/MultiLngText';
+import CompLink from '@/app/components/shared/button-link/CompLink';
+import MultiLngText from '@/app/components/shared/translator/MultiLngText';
 export default function MasterSidenav() {
  return (
   <>

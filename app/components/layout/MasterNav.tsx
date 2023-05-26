@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import CompLink from '../shared/button-link/CompLink';
-import MultiLngText from '../../components/shared/translator/MultiLngText';
 import { motion } from 'framer-motion';
+import CompLink from '@/app/components/shared/button-link/CompLink';
+import MultiLngText from '@/app/components/shared/translator/MultiLngText';
 // *
 interface IMasterNavProps {}
 // *

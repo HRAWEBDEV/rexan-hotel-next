@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import MasterLayout from '../components/layout/MasterLayout';
+import MasterLayout from '../../components/layout/MasterLayout';
 import styles from './layout.module.scss';
 const Layout = ({ children }: { children: ReactNode }) => {
  return (

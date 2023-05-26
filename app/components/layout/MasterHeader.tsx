@@ -1,10 +1,11 @@
+'use client';
 import React, { useState } from 'react';
-import CompLink from '../shared/button-link/CompLink';
-import CompButton from '../shared/button-link/CompButton';
-import MultiLngText from '../shared/translator/MultiLngText';
-import MasterNav from './MasterNav';
-import MasterCard from './MasterCard';
 import { AnimatePresence } from 'framer-motion';
+import CompLink from '@/app/components/shared/button-link/CompLink';
+import CompButton from '@/app/components/shared/button-link/CompButton';
+import MultiLngText from '@/app/components/shared/translator/MultiLngText';
+import MasterNav from '@/app/components/layout/MasterNav';
+import MasterCard from '@/app/components/layout/MasterCard';
 import addClassName from '@/app/utils/addClass';
 export default function MasterHeader() {
  const [navState, setNavState] = useState(false);

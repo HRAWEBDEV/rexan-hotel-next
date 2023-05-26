@@ -1,9 +1,7 @@
-'use client';
 import styles from './sign-up.module.scss';
 import CompLink from '@/app/components/shared/button-link/CompLink';
 import CompButton from '@/app/components/shared/button-link/CompButton';
 import CompInput from '@/app/components/shared/form-elements/CompInput';
-import CompSelect from '@/app/components/shared/form-elements/CompSelect';
 import MultiLngText from '@/app/components/shared/translator/MultiLngText';
 const SignUp = () => {
  return (

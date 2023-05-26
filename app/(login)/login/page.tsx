@@ -1,9 +1,8 @@
-'use client';
 import styles from './login.module.scss';
-import CompLink from '../components/shared/button-link/CompLink';
-import CompSelect from '../components/shared/form-elements/CompSelect';
-import CompInput from '../components/shared/form-elements/CompInput';
-import MultiLngText from '../components/shared/translator/MultiLngText';
+import CompLink from '../../components/shared/button-link/CompLink';
+import CompSelect from '../../components/shared/form-elements/CompSelect';
+import CompInput from '../../components/shared/form-elements/CompInput';
+import MultiLngText from '../../components/shared/translator/MultiLngText';
 // *
 const Login = () => {
  return (

@@ -1,3 +1,4 @@
+'use client';
 import {
  FC,
  useState,
@@ -28,7 +29,7 @@ const CompSelect: FC<ICompSelectProps> = ({
  label,
  className,
  options = [],
- variants = 'select',
+ variants = 'combo',
  activeClear = true,
  openOptionsList = false,
  ...selectProps
@@ -71,6 +72,61 @@ const CompSelect: FC<ICompSelectProps> = ({
   toggleOptionList(openOptionsList);
  }, [openOptionsList]);
  // * default select markup
+
+ if (variants == 'select')
+  return (
+   <fieldset
+    aria-expanded={isOptionsListOpen ? true : false}
+    className={`comp-fmel__wrapper${
+     fieldsetClassName ? ' ' + fieldsetClassName : ''
+    }`}
+   >
+    <label className='comp-fmel__label'>{label}</label>
+    <select {...selectProps} className='comp-select'>
+     {options.map((option) => {
+      return (
+       <option key={option} value={option}>
+        {option}
+       </option>
+      );
+     })}
+    </select>
+    <div className='comp-fmel__input-wrapper'>
+     <div
+      ref={inputRef}
+      className={`comp-fmel__input${className ? ' ' + className : ''}${
+       value ? ' not-empty' : ''
+      }`}
+      onPointerDown={onSelectClick}
+      tabIndex={0}
+     >
+      {value}
+     </div>
+     <div className='comp-fmel__indicator'>
+      <i className='opt-arrow-down'></i>
+     </div>
+     {isOptionsListOpen && (
+      <div className='comp-select__options'>
+       <ul className='comp-select__list'>
+        {options.map((option) => {
+         return (
+          <li
+           key={option}
+           onPointerDown={() => onOptionClick(option)}
+           className='comp-select__item'
+           tabIndex={0}
+          >
+           {option}
+          </li>
+         );
+        })}
+       </ul>
+      </div>
+     )}
+    </div>
+   </fieldset>
+  );
+ // * select
  return (
   <fieldset
    aria-expanded={isOptionsListOpen ? true : false}

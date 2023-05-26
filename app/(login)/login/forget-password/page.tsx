@@ -1,4 +1,3 @@
-'use client';
 import styles from './forget-password.module.scss';
 import CompLink from '@/app/components/shared/button-link/CompLink';
 import CompButton from '@/app/components/shared/button-link/CompButton';

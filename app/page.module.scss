@@ -84,3 +84,174 @@
   border-top-left-radius: 0;
  }
 }
+/* intro section */
+.intro__section {
+ padding-block: var(--section-block-offset);
+ padding-inline: var(--section-inline-offset);
+ margin-bottom: var(--section-block-offset);
+}
+
+.intro__section__title {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin-bottom: var(--gap-2x);
+ gap: 0.8em;
+ text-align: center;
+}
+
+.intro__section__info {
+ font-weight: var(--fn-w-normal);
+ margin-inline: auto;
+ width: min(100%, 50em);
+ text-align: center;
+ margin-bottom: var(--gap-2x);
+}
+
+.intro-section__gallery {
+ --card-height: 11.6em;
+ --card-width: calc(var(--card-height) * 1.3);
+ display: flex;
+ justify-content: center;
+ margin-inline-start: calc(-1 * var(--card-width) * 0.2);
+}
+
+.intro-section__card {
+ --card-outline-color: rgb(var(--cl-white));
+ --offset: 0;
+ width: var(--card-width);
+ height: var(--card-height);
+ margin-inline-end: calc(-1 * var(--card-width) * 0.2);
+ margin-top: calc(var(--card-height) * var(--offset));
+ transition: var(--tr-all-normall);
+ border-radius: var(--br-ra-main);
+ overflow: hidden;
+ outline: 0.3em solid var(--card-outline-color);
+ position: relative;
+}
+
+.intro-section__card:is(:hover, :focus) {
+ transform: scale(1.2);
+ outline-color: var(--card-outline-color);
+ z-index: 1;
+}
+
+.intro-section__card:nth-child(2),
+.intro-section__card:nth-last-child(2) {
+ --offset: 0.4;
+}
+
+.intro-section__card:nth-child(3) {
+ --offset: 0.8;
+}
+
+@media (max-width: 70em) {
+ .intro-section__gallery {
+  flex-wrap: wrap;
+  gap: var(--gap);
+  max-width: calc(var(--card-width) * 4);
+  margin-inline: auto;
+ }
+
+ .intro-section__card {
+  margin-inline-end: 0;
+  margin-top: 0;
+ }
+}
+
+@media (max-width: 30em) {
+ .intro-section__card:is(:hover, :focus) {
+  transform: scale(1);
+  outline-color: var(--card-outline-color);
+  z-index: 1;
+ }
+
+ .intro-section__gallery {
+  --card-width: 100%;
+  --card-height: auto;
+ }
+}
+/* discovery section */
+.discovery__section {
+ padding-block: var(--section-block-offset);
+ padding-inline: var(--section-inline-offset);
+ background-image: url('/images/home/discover-hotel-pattern.png');
+ background-color: rgb(var(--cl-green-700));
+ background-position: left top;
+ background-repeat: no-repeat;
+ background-size: contain;
+}
+
+.discover__section-title {
+ --comp-header-wing-bg: var(--cl-yellow-500);
+ color: rgb(var(--cl-yellow-500));
+ display: flex;
+ align-items: center;
+ gap: 0.8em;
+}
+
+.discover__section-title .header-wing {
+ flex: 1;
+}
+
+.discover__section-content {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ margin-top: calc(-1em - 1px);
+ gap: var(--gap-2x);
+}
+
+.discover__section-info {
+ padding-block: 3em;
+ width: min(100%, 46em);
+}
+
+.discover__section-des {
+ color: var(--cl-light-fn);
+ margin-bottom: 3em;
+}
+
+.discover__section-more {
+ display: flex;
+ justify-content: flex-end;
+}
+
+.discover__section-view {
+ position: relative;
+ border: 1px solid rgb(var(--cl-yellow-500));
+ border-radius: var(--br-ra-main);
+}
+
+.discover__section-img {
+ border-radius: var(--br-ra-main);
+}
+
+.discover__section-view::after {
+ content: '';
+ position: absolute;
+ top: -1px;
+ inset-inline-start: calc(-1 * var(--br-ra-main));
+ border-top: var(--br-ra-main) solid rgb(var(--cl-yellow-500));
+ border-inline: var(--br-ra-main) solid transparent;
+}
+
+@media (max-width: 50em) {
+ .discover__section-title {
+  margin-bottom: var(--section-block-offset);
+ }
+
+ .discover__section-content {
+  grid-template-columns: 1fr;
+  margin-top: 0;
+ }
+
+ .discover__section-info {
+  padding-block: 0;
+  width: 100%;
+  grid-row: 2;
+ }
+
+ .discover__section-view::after {
+  display: none;
+ }
+}
