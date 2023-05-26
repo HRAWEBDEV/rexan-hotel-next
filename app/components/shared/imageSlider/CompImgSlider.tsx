@@ -1,6 +1,7 @@
 'use client';
 import { FC, useRef, useState, useEffect } from 'react';
 import CompImg, { ICompImgProps } from '../imageLazyLoader/CompImg';
+import addClass from '@/app/utils/addClass';
 interface ICompSliderProps {
  initialSliderState?: number;
  slides: ICompImgProps[];
@@ -10,14 +11,20 @@ interface ICompSliderProps {
 
 const CompImgSlider: FC<ICompSliderProps> = ({
  initialSliderState = 0,
- slides,
+ slides = [],
  showNavigators = true,
  showIndicators = true,
 }) => {
  const [sliderState, setSliderState] = useState(initialSliderState);
  const sliderContainerRef = useRef<HTMLDivElement>(null);
  const onNavigatorClick = (action: 'next' | 'prev') => {
-  setSliderState((state) => (state += 1));
+  if (action == 'next') {
+   sliderState < slides.length - 1
+    ? setSliderState((state) => (state += 1))
+    : '';
+  } else {
+   sliderState > 0 ? setSliderState((state) => (state -= 1)) : '';
+  }
  };
  const setNewSliderState = (newState: number) => {
   sliderContainerRef.current?.style.setProperty(
@@ -41,19 +48,26 @@ const CompImgSlider: FC<ICompSliderProps> = ({
      <div className='comp-image__slider-rail'>
       {slides.map(({ id, ...slideProps }, index) => {
        return (
-        <a role='slider slide' key={id || index} className='comp-image__slide'>
+        <a
+         role='slider slide'
+         key={id || index}
+         className={`comp-image__slide ${addClass(
+          index != sliderState,
+          'fade-out'
+         )}`}
+        >
          <CompImg id={id} {...slideProps}></CompImg>
         </a>
        );
       })}
      </div>
-     {showNavigators && (
+     {showNavigators && slides.length && (
       <>
        <button
         type='button'
         role='slider controll'
         className='comp-image__slider-ct start'
-        onClick={() => onNavigatorClick('next')}
+        onClick={() => onNavigatorClick('prev')}
        >
         <i className='opt-arrow-right'></i>
        </button>
@@ -61,13 +75,13 @@ const CompImgSlider: FC<ICompSliderProps> = ({
         type='button'
         role='slider controll'
         className='comp-image__slider-ct end'
-        onClick={() => onNavigatorClick('prev')}
+        onClick={() => onNavigatorClick('next')}
        >
         <i className='opt-arrow-left'></i>
        </button>
       </>
      )}
-     {showIndicators && (
+     {showIndicators && slides.length && (
       <div className='comp-image__slider-indicators'>
        {slides.map(({ id }, index) => {
         return (
@@ -75,8 +89,11 @@ const CompImgSlider: FC<ICompSliderProps> = ({
           key={id || index}
           type='button'
           role='slider controll'
-          className='comp-image__slider-indicator'
-          onClick={() => setNewSliderState(index)}
+          className={`comp-image__slider-indicator ${addClass(
+           index == sliderState,
+           'is-selected'
+          )}`}
+          onClick={() => setSliderState(index)}
          ></button>
         );
        })}

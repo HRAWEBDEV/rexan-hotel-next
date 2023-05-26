@@ -16,34 +16,39 @@ const introductionImages: ICompImgProps[] = [
   src: '/images/home/about-1.jpg',
   alt: 'gallery images',
   style: { objectFit: 'cover' },
-  fill: true,
+  width: '200',
+  height: '200',
  },
  {
   src: '/images/home/about-2.jpg',
   alt: 'gallery images',
   style: { objectFit: 'cover' },
-  fill: true,
+  width: '200',
+  height: '200',
  },
  {
   src: '/images/home/about-3.jpg',
   alt: 'gallery images',
   style: { objectFit: 'cover' },
-  fill: true,
+  width: '200',
+  height: '200',
  },
  {
   src: '/images/home/about-4.jpg',
   alt: 'gallery images',
   style: { objectFit: 'cover' },
-  fill: true,
+  width: '200',
+  height: '200',
  },
  {
   src: '/images/home/about-5.jpg',
   alt: 'gallery images',
   style: { objectFit: 'cover' },
-  fill: true,
+  width: '200',
+  height: '200',
  },
 ];
-
+// *
 export default function Home() {
  return (
   <>
@@ -93,9 +98,9 @@ export default function Home() {
       <article className={styles['intro-section__gallery']}>
        {introductionImages.map((img, index) => {
         return (
-         <div key={index} className={styles['intro-section__card']}>
+         <Link href={'#'} key={index} className={styles['intro-section__card']}>
           <CompImg {...img} />
-         </div>
+         </Link>
         );
        })}
       </article>
@@ -141,22 +146,26 @@ export default function Home() {
       </article>
      </section>
      {/* times section */}
-     <section id='times' className='plans__section'>
-      <h2 className='plans__section-title'>
+     <section id='times' className={styles['plans__section']}>
+      <h2 className={styles['plans__section-title']}>
        <MultiLngText text='انواع دوره های زمانی هتل رکسان' />
-       <span className='header-wing'></span>
+       <span className='header-wing util-f-grow'></span>
       </h2>
-      <p className='plans__section-des util-read-txt'>
+      <p className={styles['plans__section-des'] + ' util-read-txt'}>
        <MultiLngText text='شرایط واگذاری واحد ها در هتل رکسان و در قالب حق انتفاع در یک سال قمری به 50 هفته تقسیم شده است. هر دوره اقامتی به مدت یک هفته می باشد و با توجه به مناسبت های بازه زمانی و اهمیت دوره دسته بندی شده است، در این قسمت می توانید با بررسی  انواع بازه های زمانی و بررسی شرایط قیمتی نسبت به انتخاب واحد اقامتی در هر دوره تا 50 سال آینده از حق مالکیت زمانی آن بهرمند شوید' />
       </p>
-      <article className='plans__section-view'>
-       <div className='plans__slider-conatiner'>
-        <div className='plans__slider'>
-         <ul className='plans__list'>
+      <article className={styles['plans__section-view']}>
+       <div className={styles['plans__slider-conatiner']}>
+        <div className={styles['plans__slider']}>
+         <ul className={styles['plans__list']}>
           <li>
-           <a className='plans__item awesome'>
-            <h3 className='plans__item-name'></h3>
-            <i className='plans__item-indicator'></i>
+           <a className={styles['plans__item']}>
+            <h3 className={styles['plans__item-name']}></h3>
+            <i
+             className={
+              styles['plans__item-indicator'] + ' opt-ico-period-perfect'
+             }
+            ></i>
             <p>
              <span></span>
              <span></span>
@@ -166,6 +175,301 @@ export default function Home() {
          </ul>
         </div>
        </div>
+      </article>
+     </section>
+     {/* room types */}
+     <section id='rooms' className={styles['room-types__section']}>
+      <header className={styles['room-types__header']}>
+       <div className={styles['room-types__wrapper']}>
+        <h2 className={styles['room-types__title']}>
+         <span className='header-wing start'></span>
+         <MultiLngText
+          text='انواع اتاق های
+         هتل'
+         />
+         <span className='header-wing'></span>
+        </h2>
+       </div>
+       <ul className={styles['room-types__list']}>
+        <li className={styles['room-types__item']}>
+         <CompLink vairiants='gold' href={'#'}>
+          <MultiLngText text='دو تخته' />
+         </CompLink>
+        </li>
+       </ul>
+      </header>
+      <article className={styles['room-types__view']}>
+       <section className={styles['room-types__info']}>
+        <div className={styles['room-types__info-wrapper']}>
+         <ul className={styles['room-types__desc']}>
+          <li>
+           <span>
+            <MultiLngText text='حداقل ظرفیت:‌ ' />
+           </span>
+           <span>2</span>
+          </li>
+          <li>
+           <span>
+            <MultiLngText text='حداکثر ظرفیت:‌ ' />
+           </span>
+           <span>5</span>
+          </li>
+         </ul>
+         <div className={styles['room-types__facilities']}>
+          <Link className={styles['room-types__facility']} href='#'>
+           <div className={styles['room-types__facility-wrapper']}>
+            <i className='opt-luxury-room'></i>
+           </div>
+           <span>
+            <MultiLngText text='مبلمان' />
+           </span>
+          </Link>
+         </div>
+        </div>
+       </section>
+       <section className={styles['room-types__images']}>
+        <div
+         className={
+          styles['room-types__image'] + ' ' + styles['room-types__image-slider']
+         }
+        >
+         <CompImgSlider
+          slides={[
+           {
+            src: '/images/home/room-1.jpg',
+            width: 400,
+            height: 200,
+            alt: 'room image',
+           },
+           {
+            src: '/images/home/room-2.jpg',
+            width: 400,
+            height: 200,
+            alt: 'room image',
+           },
+           {
+            src: '/images/home/room-3.jpg',
+            width: 400,
+            height: 200,
+            alt: 'room image',
+           },
+          ]}
+         ></CompImgSlider>
+        </div>
+        <Link href='#' className={styles['room-types__image']}>
+         <CompImg
+          width={400}
+          height={200}
+          alt='room image'
+          src={'/images/home/room-4.jpg'}
+         />
+        </Link>
+        <Link href='#' className={styles['room-types__image']}>
+         <CompImg
+          width={400}
+          height={200}
+          alt='room image'
+          src={'/images/home/room-5.jpg'}
+         />
+        </Link>
+       </section>
+      </article>
+     </section>
+     {/* facilities section */}
+     <section id='facilities' className={styles['facilities__section']}>
+      <h2 className={styles['facilities-section__title']}>
+       <span className='header-wing start'></span>
+       <MultiLngText
+        text='امکانات هتل
+       رکسان'
+       />
+       <span className='header-wing'></span>
+      </h2>
+      <article className={styles['facilities__view']}>
+       <Link href='' className={styles['facilities__card']}>
+        <div className={styles['facilities__card-icon-wrapper']}>
+         <i className={styles['facilities__card-icon'] + ' opt-city-guide'}></i>
+        </div>
+        <span className={styles['facilities__card-des']}>
+         <MultiLngText text='راهنمای تور شهر' />
+        </span>
+       </Link>
+       <Link href='' className={styles['facilities__card']}>
+        <div className={styles['facilities__card-icon-wrapper']}>
+         <i
+          className={styles['facilities__card-icon'] + ' opt-luxury-room'}
+         ></i>
+        </div>
+        <span className={styles['facilities__card-des']}>
+         <MultiLngText text='اتاق های لاکچری' />
+        </span>
+       </Link>
+       <Link href='' className={styles['facilities__card']}>
+        <div className={styles['facilities__card-icon-wrapper']}>
+         <i
+          className={styles['facilities__card-icon'] + ' opt-airport-pickup'}
+         ></i>
+        </div>
+        <span className={styles['facilities__card-des']}>
+         <MultiLngText text='ترانسفر فرودگاه' />
+        </span>
+       </Link>
+       <Link href='' className={styles['facilities__card']}>
+        <div className={styles['facilities__card-icon-wrapper']}>
+         <i className={styles['facilities__card-icon'] + ' opt-pool'}></i>
+        </div>
+        <span className={styles['facilities__card-des']}>
+         <MultiLngText text='استخر' />
+        </span>
+       </Link>
+       <Link href='' className={styles['facilities__card']}>
+        <div className={styles['facilities__card-icon-wrapper']}>
+         <i className={styles['facilities__card-icon'] + ' opt-wifi'}></i>
+        </div>
+        <span className={styles['facilities__card-des']}>
+         <MultiLngText text='اینترنت رایگان' />
+        </span>
+       </Link>
+       <Link href='' className={styles['facilities__card']}>
+        <div className={styles['facilities__card-icon-wrapper']}>
+         <i className={styles['facilities__card-icon'] + ' opt-fastfood'}></i>
+        </div>
+        <span className={styles['facilities__card-des']}>
+         <MultiLngText text='رستوران' />
+        </span>
+       </Link>
+       <Link href='' className={styles['facilities__card']}>
+        <div className={styles['facilities__card-icon-wrapper']}>
+         <i className={styles['facilities__card-icon'] + ' opt-cofee-shop'}></i>
+        </div>
+        <span className={styles['facilities__card-des']}>
+         <MultiLngText text='کافی شاپ' />
+        </span>
+       </Link>
+       <Link
+        href=''
+        className={
+         styles['facilities__card'] + ' ' + styles['facilities__card-more']
+        }
+       >
+        <div className={styles['facilities__card-icon-wrapper']}>
+         <i className={styles['facilities__card-icon'] + ' opt-more'}></i>
+        </div>
+        <span className={styles['facilities__card-des']}></span>
+       </Link>
+      </article>
+     </section>
+     {/* news section */}
+     <section id='news' className={styles['news__section']}>
+      <header className={styles['news__header']}>
+       <div className={styles['news-header__wrapper']}>
+        <h2 className={styles['news__title']}>
+         <MultiLngText text='اخبار پروژه رکسان' />
+
+         <span className='header-wing'></span>
+        </h2>
+       </div>
+       <CompLink vairiants='gold' withLogo={true} href={''}>
+        <MultiLngText text='اخبار دیگر'></MultiLngText>
+       </CompLink>
+      </header>
+      <article className={styles['news__view']}>
+       <Link href='' className={styles['news__card']}>
+        <CompImg
+         src={'/images/home/news-1.jpg'}
+         alt='news image'
+         width='360'
+         height='260'
+        />
+        <div className={styles['news__card-info']}>
+         <span className={styles['news__card-des']}>
+          <MultiLngText
+           text='ارتقاء کیفیت هتل با
+          تغییر هتل 4 ستاره به 5 ستاره'
+          />
+         </span>
+        </div>
+       </Link>
+       <Link href='' className={styles['news__card']}>
+        <CompImg
+         src={'/images/home/news-2.jpg'}
+         alt='news image'
+         width='360'
+         height='260'
+        />
+        <div className={styles['news__card-info']}>
+         <span className={styles['news__card-des']}>
+          <MultiLngText
+           text='خرید زمین به متراژ
+          4275 متر مربع جهت محوطه سازی'
+          />
+         </span>
+        </div>
+       </Link>
+       <Link href='' className={styles['news__card']}>
+        <CompImg
+         src={'/images/home/news-3.jpg'}
+         alt='news image'
+         width='360'
+         height='260'
+        />
+        <div className={styles['news__card-info']}>
+         <span className={styles['news__card-des']}>
+          <MultiLngText
+           text=' خرید زمین به متراژ
+          2743 متر مربع جهت ساخت 12 استخر و سالن ورزشی'
+          />
+         </span>
+        </div>
+       </Link>
+       <Link href='' className={styles['news__card']}>
+        <CompImg
+         src={'/images/home/news-4.jpg'}
+         alt='news image'
+         width='360'
+         height='260'
+        />
+        <div className={styles['news__card-info']}>
+         <span className={styles['news__card-des']}>
+          <MultiLngText
+           text='خرید زمین به متراژ
+          2078 متر مربع جهت ساخت پارکینگ طبفاتی با ظرفیت 400 اتومبیل'
+          />
+         </span>
+        </div>
+       </Link>
+       <Link href='' className={styles['news__card']}>
+        <CompImg
+         src={'/images/home/news-5.jpg'}
+         alt='news image'
+         width='360'
+         height='260'
+        />
+        <div className={styles['news__card-info']}>
+         <span className={styles['news__card-des']}>
+          <MultiLngText
+           text='اضافه شدن 2 آسانسور
+          جدید جهت خدمات رسانی بهینه در طبقات هتل'
+          />
+         </span>
+        </div>
+       </Link>
+       <Link href='' className={styles['news__card']}>
+        <CompImg
+         src={'/images/home/news-6.jpg'}
+         alt='news image'
+         width='360'
+         height='260'
+        />
+        <div className={styles['news__card-info']}>
+         <span className={styles['news__card-des']}>
+          <MultiLngText
+           text='ساخت سالن بوئینگ و
+          روف گاردن در طبقه 14 (پشت بام هتل)'
+          />
+         </span>
+        </div>
+       </Link>
       </article>
      </section>
     </div>
