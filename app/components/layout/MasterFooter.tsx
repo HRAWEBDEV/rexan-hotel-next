@@ -1,35 +1,54 @@
 'use client';
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Script from 'next/script';
 import CompLink from '../shared/button-link/CompLink';
 import MultiLngText from '../shared/translator/MultiLngText';
-const mapsCoordinates = [
+import { LatLngExpression } from 'leaflet';
+const mapsCoords: LatLngExpression[] = [
  [35.72619901135786, 51.407632269565354],
  [32.6257785, 44.045028],
 ];
 export default function MasterFooter() {
- const mapRef = useRef<{ current: null | HTMLDivElement }[]>([
-  { current: null },
-  { current: null },
+ const mapRefs = useRef<{ el: HTMLDivElement | string }[]>([
+  { el: '' },
+  { el: '' },
  ]);
- const onMapScriptLoaded = () => {
-  // console.log('map loaded', L);
-  // mapsCoordinates.forEach((coordinate, index) => {
-  //  const mapFrame = L.map(mapRef.current[index].current, {
-  //   attributionControl: false,
-  //   fullscreenControl: true,
-  //   fullscreenControlOptions: {
-  //    position: 'topleft',
-  //   },
-  //  }).setView(coordinate, 14);
-  //  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  //   maxZoom: 19,
-  //  }).addTo(mapFrame);
-  //  L.marker(coordinate, {}).addTo(mapFrame);
-  // });
+ const createMaps = () => {
+  mapsCoords.forEach((coordinate, index) => {
+   const mapFrame = window.L.map(mapRefs.current[index].el, {
+    attributionControl: false,
+   }).setView(coordinate, 14);
+   window.L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+   }).addTo(mapFrame);
+   const redIcon = new window.L.Icon({
+    iconUrl:
+     'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+    shadowUrl:
+     'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+   });
+   window.L.marker(coordinate, {
+    icon: redIcon,
+   }).addTo(mapFrame);
+  });
  };
+ const onMapScriptLoaded = () => {
+  createMaps();
+ };
+ const onMapScriptError = () => {};
+ useEffect(() => {}, []);
  return (
   <>
+   <link
+    rel='stylesheet'
+    href='https://unpkg.com/leaflet@1.9.3/dist/leaflet.css'
+    integrity='sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI='
+    crossOrigin=''
+   />
    <footer className='master__footer'>
     <section className='master__footer-top'>
      <div className='master__footer-top-links'>
@@ -223,7 +242,10 @@ export default function MasterFooter() {
         </span>
        </li>
       </ul>
-      <div className='map' ref={(el) => (mapRef.current[0].current = el)}></div>
+      <div
+       className='map'
+       ref={(el) => (mapRefs.current[0].el = el || '')}
+      ></div>
      </div>
      <div className='master__footer-contact'>
       <h3 className='ms__footer-contact-title util-mar-b'>
@@ -284,7 +306,10 @@ export default function MasterFooter() {
         </span>
        </li>
       </ul>
-      <div className='map' ref={(el) => (mapRef.current[1].current = el)}></div>
+      <div
+       className='map'
+       ref={(el) => (mapRefs.current[1].el = el || '')}
+      ></div>
      </div>
     </section>
     <section className='master__footer-rights'>
@@ -298,11 +323,10 @@ export default function MasterFooter() {
    </footer>
    <Script
     src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js'
-    crossOrigin='anonymous'
     integrity='sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM='
-    onLoad={() => {
-     onMapScriptLoaded();
-    }}
+    crossOrigin='anonymous'
+    onLoad={onMapScriptLoaded}
+    onError={onMapScriptError}
    />
   </>
  );

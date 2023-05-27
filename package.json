@@ -23,6 +23,7 @@
   "typescript": "5.0.4"
  },
  "devDependencies": {
+  "@types/leaflet": "^1.9.3",
   "sass": "^1.62.1"
  }
 }
