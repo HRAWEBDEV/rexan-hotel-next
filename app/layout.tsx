@@ -3,10 +3,10 @@ import './styles/reset.scss';
 import './styles/comp-button-link.scss';
 import './styles/comp-img.scss';
 import './styles/comp-form.scss';
-import './styles/layout.scss';
+import '@/app/styles/layout.scss';
 // *
 export const metadata = {
- title: 'rexan hotel',
+ title: 'هتل رکسان',
  description: '',
 };
 
@@ -17,9 +17,6 @@ export default function RootLayout({
 }) {
  return (
   <html lang='fa'>
-   {/*<head>
-        <link rel='icon' type='image/x-icon' href='' />
-    </head>*/}
    <body dir='rtl'>{children}</body>
   </html>
  );

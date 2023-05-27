@@ -308,7 +308,9 @@ img {
 .util-d-flex {
  display: flex;
 }
-
+.util-f-grow {
+ flex-grow: 1;
+}
 .util-d-in-flex {
  display: inline-flex;
 }

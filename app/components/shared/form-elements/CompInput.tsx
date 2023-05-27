@@ -1,3 +1,4 @@
+'use client';
 import { FC, HTMLAttributes, HTMLProps, MouseEventHandler } from 'react';
 import { ICompInputsBaseProps } from './types';
 // *

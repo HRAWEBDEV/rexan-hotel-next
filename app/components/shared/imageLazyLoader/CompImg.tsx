@@ -1,3 +1,4 @@
+'use client';
 import { FC, useState } from 'react';
 import Image, { ImageProps } from 'next/image';
 import addClass from '../../../utils/addClass';

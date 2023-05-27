@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import CompLink from '../shared/button-link/CompLink';
-import MultiLngText from '../shared/translator/MultiLngText';
+import CompLink from '@/app/components/shared/button-link/CompLink';
+import MultiLngText from '@/app/components/shared/translator/MultiLngText';
 import { motion } from 'framer-motion';
 // *
 interface IMasterCard {}

@@ -1,0 +1,14 @@
+.login__main {
+ display: flex;
+ padding: var(--gap-2x);
+ height: 100vh;
+ overflow: auto;
+}
+.login__main::before {
+ content: '';
+ background-image: url('/images/islamic-pattern.png');
+ position: absolute;
+ inset: 0;
+ opacity: 0.2;
+ pointer-events: none;
+}
