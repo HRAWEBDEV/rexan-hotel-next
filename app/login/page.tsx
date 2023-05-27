@@ -4,6 +4,7 @@ import CompLink from '../components/shared/button-link/CompLink';
 import CompSelect from '../components/shared/form-elements/CompSelect';
 import CompInput from '../components/shared/form-elements/CompInput';
 import MultiLngText from '../components/shared/translator/MultiLngText';
+import React from 'react';
 // *
 const Login = () => {
  return (
