@@ -2,7 +2,7 @@ import React from 'react';
 import MasterHeader from './MasterHeader';
 import MasterFooter from './MasterFooter';
 import MasterSidenav from './MasterSidenav';
-// * types
+// *
 interface IMasterLayoutProps {
  withMasterFooter?: boolean;
  withMasterHeader?: boolean;

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import CompImg, {
  ICompImgProps,
 } from './components/shared/imageLazyLoader/CompImg';
-import styles from '@/app/page.module.scss';
+import styles from './page.module.scss';
 import MasterLayout from '@/app/components/layout/MasterLayout';
 import CompImgSlider from '@/app/components/shared/imageSlider/CompImgSlider';
 import CompSelect from '@/app/components/shared/form-elements/CompSelect';
@@ -65,6 +65,7 @@ export default function Home() {
          alt: 'hero image',
          fill: true,
          style: { objectPosition: 'right bottom' },
+         priority: false,
         },
        ]}
       ></CompImgSlider>

@@ -66,7 +66,7 @@ const CompSelect: FC<ICompSelectProps> = ({
    inputRef.current?.removeEventListener('blur', onInputBlur);
    inputRef.current?.removeEventListener('focus', onInputFocus);
   };
- }, [isFocused]);
+ });
  // * use effect controlling options list open or close state
  useEffect(() => {
   toggleOptionList(openOptionsList);

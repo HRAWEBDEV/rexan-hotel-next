@@ -1,13 +1,15 @@
-import { forwardRef, ReactNode, FC, HTMLAttributes } from 'react';
+import { ReactNode, FC, HTMLAttributes } from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { TCompButtonVariants } from './types';
-interface LinkProps extends NextLinkProps, HTMLAttributes<HTMLAnchorElement> {
+interface ICompLinkProps
+ extends NextLinkProps,
+  HTMLAttributes<HTMLAnchorElement> {
  children?: ReactNode;
  className?: string;
  withLogo?: boolean;
  vairiants?: TCompButtonVariants;
 }
-const CompLink: FC<LinkProps> = function ({
+const CompLink: FC<ICompLinkProps> = function ({
  href,
  prefetch,
  replace,

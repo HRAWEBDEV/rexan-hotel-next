@@ -1,7 +1,7 @@
 import { FC, HTMLProps, HTMLAttributes } from 'react';
 import { TCompButtonVariants, TCompButtonTypes } from './types';
 
-interface IButtonComponentProps
+interface ICompButtonProps
  extends HTMLProps<HTMLButtonElement>,
   HTMLAttributes<HTMLButtonElement> {
  type?: TCompButtonTypes;
@@ -9,7 +9,7 @@ interface IButtonComponentProps
  vairiants?: TCompButtonVariants;
 }
 
-const CompButton: FC<IButtonComponentProps> = function ({
+const CompButton: FC<ICompButtonProps> = function ({
  children,
  className,
  vairiants,

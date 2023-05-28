@@ -1,0 +1,229 @@
+.plans__content {
+ position: relative;
+ display: flex;
+}
+
+.plans__filters {
+ display: flex;
+ flex-wrap: wrap;
+ gap: var(--gap-2x);
+ margin-bottom: var(--gap-2x);
+}
+
+.plans__filters-btn {
+ display: flex;
+ align-items: center;
+ gap: 0.5em;
+ transition: var(--tr-all-normall);
+}
+
+.plans__filters-btn:is(:hover, :focus) {
+ color: var(--cl-red-accent);
+}
+
+.plans__filters-btn i {
+ font-size: 1.8em;
+}
+
+.plans__section {
+ flex: 1;
+ padding: var(--gap-2x);
+ padding-inline-start: var(--gap);
+ padding-inline-end: var(--section-inline-offset);
+ min-height: 40em;
+}
+
+.plans__type-title {
+ display: flex;
+ align-items: center;
+ gap: 0.8em;
+ margin-bottom: var(--gap);
+}
+
+.plans__type-des {
+ margin-bottom: var(--gap-2x);
+}
+
+.plans__types-list {
+ display: flex;
+ gap: var(--gap);
+ direction: ltr;
+ border-bottom: 2px solid var(--cl-gold-accent);
+ overflow: auto;
+ margin-bottom: var(--section-block-offset);
+}
+
+.plans__types-list > * {
+ flex-grow: 1;
+ flex-shrink: 0;
+}
+
+.plans__types-btn {
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ justify-content: space-between;
+ gap: var(--gap);
+ width: 100%;
+ background-color: rgb(var(--cl-white-200));
+ padding: var(--gap);
+ border-radius: var(--br-ra-main) var(--br-ra-main) 0 0;
+ color: var(--cl-red-accent);
+ transition: var(--tr-all-normall);
+}
+
+.plans__types-btn:is(.is-selected) {
+ background-color: var(--cl-gold-accent);
+ color: rgb(var(--cl-white));
+}
+
+.plans__types-name {
+ font-size: 1.2em;
+}
+
+.plans__types-icon {
+ font-size: 6em;
+}
+
+.plans__month-list {
+ --item-bg: rgb(var(--cl-cyan-600));
+ --item-cl: rgb(var(--cl-white));
+ display: flex;
+ flex-wrap: wrap;
+ gap: var(--gap);
+ margin-bottom: var(--gap-4x);
+}
+
+.plans__month-btn {
+ display: flex;
+ padding: var(--gap);
+ background-color: var(--item-bg);
+ color: var(--item-cl);
+ transition: var(--tr-all-normall);
+ border-radius: var(--br-ra-main);
+}
+
+.plans__month-btn:is(.is-selected) {
+ --item-bg: var(--cl-red-accent);
+}
+
+.plans__month-btn > i {
+ font-size: 1.8em;
+}
+/* * plans */
+.plans__view {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(min(100%, 17em), 1fr));
+ gap: var(--gap-2x);
+}
+
+.plan__card-wrapper {
+ --badge-size: 3.4em;
+ --wing-size: 0.4em;
+ --badge-rotation: 45deg;
+ --badge-transfer-orgin: left;
+ --badge-cl: var(--cl-gold-accent);
+ --wing-cl: var(--cl-gold-accent);
+ position: relative;
+ border-radius: var(--br-ra-main);
+ overflow: hidden;
+}
+
+.plan__card-content,
+.plan__card {
+ display: flex;
+ flex-direction: column;
+}
+
+.plan__card {
+ background-color: rgb(var(--cl-cyan-600));
+ border-radius: var(--br-ra-main);
+ background-image: url('/images/times/times-bg-pattern.png');
+ background-position: center;
+ background-size: contain;
+ height: 100%;
+}
+
+.plan__card-header {
+ padding: var(--gap-small) var(--gap);
+ color: var(--cl-light-fn);
+ text-align: center;
+}
+
+.plan__card-content {
+ flex: 1;
+ background-color: rgb(var(--cl-white-80));
+ border-radius: 0 0 var(--br-ra-main) var(--br-ra-main);
+ padding: var(--gap-2x) var(--gap);
+}
+
+.plan__card-date-del {
+ font-weight: var(--fn-w-medium);
+ font-size: 1.1em;
+}
+
+.plan__card-date {
+ display: flex;
+ align-items: center;
+ gap: var(--gap-small);
+ margin-bottom: var(--gap);
+}
+
+.plan__card-date-day {
+ position: relative;
+ width: 3em;
+ height: 3em;
+ color: var(--cl-gold-accent);
+}
+
+.plan__card-date-day span {
+ position: absolute;
+ top: 35%;
+ left: 48%;
+ transform: translateX(-50%);
+ font-size: 1.2em;
+ font-weight: var(--fn-w-medium);
+}
+
+.plan__card-date-day i {
+ font-size: 3em;
+ position: absolute;
+ left: 0;
+ top: 0;
+}
+
+.plan__card-desc {
+ flex: 1;
+ margin-bottom: var(--gap-2x);
+ font-size: 0.9em;
+}
+
+.plan__card-date-from,
+.plan__card-date-to {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: var(--gap-small);
+}
+
+.plan__card-more {
+ display: flex;
+ flex-wrap: wrap;
+ gap: var(--gap-small);
+ justify-content: center;
+}
+
+.plan__card-date-month {
+ font-size: 1.5em;
+ color: rgb(var(--cl-cyan-600));
+}
+body[dir='rtl'] .plan__card-date-month > span {
+ display: none;
+}
+body[dir='ltr'] .plan__card-date-month > i {
+ display: none;
+}
+body[dir='ltr'] .plan__card-date-month {
+ font-size: 1.1em;
+}

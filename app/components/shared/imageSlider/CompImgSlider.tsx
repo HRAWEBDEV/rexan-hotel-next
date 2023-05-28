@@ -21,11 +21,9 @@ const CompImgSlider: FC<ICompSliderProps> = ({
 }) => {
  const [sliderState, setSliderState] = useState(initialSliderState);
  const [userChangedSlide, setUserChangedSlide] = useState(false);
- const [sliderShowTimerId, setSliderShowTimerId] = useState<
-  NodeJS.Timer | number
- >(0);
  const sliderContainerRef = useRef<HTMLDivElement>(null);
  const sliderRailRef = useRef<HTMLDivElement>(null);
+ let timeoutIDRef = useRef<NodeJS.Timer | number>(0);
  const resetRailTransition = () => {
   sliderRailRef.current?.style.setProperty('transition', '');
  };
@@ -51,12 +49,12 @@ const CompImgSlider: FC<ICompSliderProps> = ({
  };
  const onIndicatorClick = (index: number) => {
   setUserChangedSlide(true);
-  clearTimeout(sliderShowTimerId);
+  clearTimeout(timeoutIDRef.current);
   setSliderState(index);
  };
  const onNavigatorClick = (action: 'next' | 'prev') => {
   setUserChangedSlide(true);
-  clearTimeout(sliderShowTimerId);
+  clearTimeout(timeoutIDRef.current);
   changeSlide(action);
  };
  const setNewSliderState = (newState: number) => {
@@ -65,30 +63,27 @@ const CompImgSlider: FC<ICompSliderProps> = ({
    newState + ''
   );
  };
+
  // * changing the slide
  useEffect(() => {
   setNewSliderState(sliderState);
  }, [sliderState]);
  useEffect(() => {
   if (activeSliderShow)
-   setSliderShowTimerId(
-    setTimeout(() => {
-     changeSlide('next');
-    }, sliderShowTimer)
-   );
+   timeoutIDRef.current = setTimeout(() => {
+    changeSlide('next');
+   }, sliderShowTimer);
   return () => {
-   clearTimeout(sliderShowTimerId);
+   clearTimeout(timeoutIDRef.current);
   };
  }, [activeSliderShow]);
  useEffect(() => {
   if (!activeSliderShow || userChangedSlide) return;
-  clearTimeout(sliderShowTimerId);
-  setSliderShowTimerId(
-   setTimeout(() => {
-    changeSlide('next');
-   }, sliderShowTimer)
-  );
- }, [sliderState]);
+  clearTimeout(timeoutIDRef.current);
+  timeoutIDRef.current = setTimeout(() => {
+   changeSlide('next');
+  }, sliderShowTimer);
+ });
  // *
  return (
   <>

@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Script from 'next/script';
 import CompLink from '../shared/button-link/CompLink';
 import MultiLngText from '../shared/translator/MultiLngText';
@@ -9,13 +10,18 @@ const mapsCoords: LatLngExpression[] = [
  [32.6257785, 44.045028],
 ];
 export default function MasterFooter() {
- const mapRefs = useRef<{ el: HTMLDivElement | string }[]>([
-  { el: '' },
-  { el: '' },
+ const mapRefs = useRef<{ el: HTMLDivElement | null }[]>([
+  { el: null },
+  { el: null },
  ]);
+ const removeMaps = () => {
+  mapRefs.current.forEach((ref) => {
+   ref.el?.remove();
+  });
+ };
  const createMaps = () => {
   mapsCoords.forEach((coordinate, index) => {
-   const mapFrame = window.L.map(mapRefs.current[index].el, {
+   const mapFrame = window.L.map(mapRefs.current[index].el!, {
     attributionControl: false,
    }).setView(coordinate, 14);
    window.L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -39,8 +45,13 @@ export default function MasterFooter() {
  const onMapScriptLoaded = () => {
   createMaps();
  };
- const onMapScriptError = () => {};
- useEffect(() => {}, []);
+ const onMapScriptError = () => {
+  removeMaps();
+ };
+ useEffect(() => {
+  if (!window.L) return;
+  createMaps();
+ }, []);
  return (
   <>
    <link
@@ -174,10 +185,20 @@ export default function MasterFooter() {
      </div>
      <div className='master__footer-partners'>
       <a href='' className='master__footer-partner'>
-       <img src='/images/alrawadatain-logo.png' alt='company logo' />
+       <Image
+        width={120}
+        height={90}
+        src='/images/alrawadatain-logo.png'
+        alt='company logo'
+       />
       </a>
       <a href='' className='master__footer-partner'>
-       <img src='/images/rh-logo.png' alt='company logo' />
+       <Image
+        width={120}
+        height={90}
+        src='/images/rh-logo.png'
+        alt='company logo'
+       />
       </a>
      </div>
     </section>
@@ -242,10 +263,7 @@ export default function MasterFooter() {
         </span>
        </li>
       </ul>
-      <div
-       className='map'
-       ref={(el) => (mapRefs.current[0].el = el || '')}
-      ></div>
+      <div className='map' ref={(el) => (mapRefs.current[0].el = el)}></div>
      </div>
      <div className='master__footer-contact'>
       <h3 className='ms__footer-contact-title util-mar-b'>
@@ -306,10 +324,7 @@ export default function MasterFooter() {
         </span>
        </li>
       </ul>
-      <div
-       className='map'
-       ref={(el) => (mapRefs.current[1].el = el || '')}
-      ></div>
+      <div className='map' ref={(el) => (mapRefs.current[1].el = el)}></div>
      </div>
     </section>
     <section className='master__footer-rights'>
@@ -327,6 +342,7 @@ export default function MasterFooter() {
     crossOrigin='anonymous'
     onLoad={onMapScriptLoaded}
     onError={onMapScriptError}
+    strategy='lazyOnload'
    />
   </>
  );

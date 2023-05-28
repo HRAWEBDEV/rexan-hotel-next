@@ -1,3 +1,4 @@
+'use client';
 import styles from './login.module.scss';
 import CompLink from '../../components/shared/button-link/CompLink';
 import CompSelect from '../../components/shared/form-elements/CompSelect';
