@@ -68,21 +68,15 @@ const CompImgSlider: FC<ICompSliderProps> = ({
  useEffect(() => {
   setNewSliderState(sliderState);
  }, [sliderState]);
- useEffect(() => {
-  if (activeSliderShow)
-   timeoutIDRef.current = setTimeout(() => {
-    changeSlide('next');
-   }, sliderShowTimer);
-  return () => {
-   clearTimeout(timeoutIDRef.current);
-  };
- }, [activeSliderShow]);
+ // *
  useEffect(() => {
   if (!activeSliderShow || userChangedSlide) return;
-  clearTimeout(timeoutIDRef.current);
   timeoutIDRef.current = setTimeout(() => {
    changeSlide('next');
   }, sliderShowTimer);
+  return () => {
+   clearTimeout(timeoutIDRef.current);
+  };
  });
  // *
  return (

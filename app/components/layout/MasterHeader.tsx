@@ -190,7 +190,12 @@ export default function MasterHeader() {
      >
       <MultiLngText text='ثبت نام / ورود'></MultiLngText>
      </CompLink>
-     <CompLink className='master__sign-buy-ct' href={'#'} vairiants='gold'>
+     <CompLink
+      className='master__sign-buy-ct'
+      prefetch={true}
+      href={'/times'}
+      vairiants='gold'
+     >
       <MultiLngText text='خرید دوره'></MultiLngText>
      </CompLink>
      <CompButton

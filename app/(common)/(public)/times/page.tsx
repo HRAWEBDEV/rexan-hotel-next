@@ -2,6 +2,7 @@ import styles from './times.module.scss';
 import MasterBreadcrumb from '@/app/components/layout/MasterBreadcrumb';
 import MultiLngText from '@/app/components/shared/translator/MultiLngText';
 import CompLink from '@/app/components/shared/button-link/CompLink';
+import CompAsidePannel from '@/app/components/shared/aside/CompAsidePannel';
 export default function page() {
  return (
   <>
@@ -12,6 +13,7 @@ export default function page() {
     </h1>
    </div>
    <div data-plans-content className={styles['plans__content']}>
+    <CompAsidePannel></CompAsidePannel>
     <section id='plans__section' className={styles['plans__section']}>
      <article className={styles['plans__view']}>
       <div className={styles['plan__card-wrapper']}>
@@ -29,7 +31,7 @@ export default function page() {
             <i className='opt-callender-day-frame'></i>
            </div>
            <div className={styles['plan__card-date-month']}>
-            <i className=''></i>
+            <i className='opt-lunar-month-1'></i>
             <span></span>
            </div>
           </div>
@@ -40,7 +42,7 @@ export default function page() {
             <i className='opt-callender-day-frame'></i>
            </div>
            <div className={styles['plan__card-date-month']}>
-            <i className=''></i>
+            <i className='opt-lunar-month-1'></i>
             <span></span>
            </div>
           </div>

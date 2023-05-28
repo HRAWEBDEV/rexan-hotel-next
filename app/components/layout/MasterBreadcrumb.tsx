@@ -11,20 +11,22 @@ const MasterBreadcrumb: FC<IMasterBreadcrumbProps> = ({ routes }) => {
  return (
   <nav aria-label='breadcurmb navigation' className='master__breadcrumb-nav'>
    <ul className='master__breadcrumb-list'>
-    <li className='master__breadcrumb-item'>
-     {/* <a className='master__breadcrumb-link'></a> */}
-     {routes.map(({ className, ...props }) => {
-      return (
+    {routes.map(({ children, className, id, ...props }, index) => {
+     return (
+      <li key={index || id} className='master__breadcrumb-item'>
        <Link
+        id={id}
         {...props}
         className={`master__breadcrumb-link${addClassName(
          className,
          className
         )}`}
-       ></Link>
-      );
-     })}
-    </li>
+       >
+        {children}
+       </Link>
+      </li>
+     );
+    })}
    </ul>
   </nav>
  );
