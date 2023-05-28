@@ -6,7 +6,6 @@ import {
  MouseEventHandler,
  HTMLAttributes,
  HTMLProps,
- useRef,
 } from 'react';
 import { ICompInputsBaseProps, TSelectOption, TSelectVariants } from './types';
 // *
@@ -36,7 +35,6 @@ const CompSelect: FC<ICompSelectProps> = ({
 }) => {
  const [isFocused, setIsFocused] = useState(false);
  const [isOptionsListOpen, setIsOptionsListOpen] = useState(false);
- const inputRef = useRef<HTMLDivElement>(null);
  const toggleOptionList = (action?: boolean) => {
   setIsOptionsListOpen((state) => (action != undefined ? action : !state));
  };
@@ -59,14 +57,6 @@ const CompSelect: FC<ICompSelectProps> = ({
   setIsFocused((state) => !state);
   toggleOptionList();
  };
- useEffect(() => {
-  inputRef.current?.addEventListener('focus', onInputFocus);
-  inputRef.current?.addEventListener('blur', onInputBlur);
-  return () => {
-   inputRef.current?.removeEventListener('blur', onInputBlur);
-   inputRef.current?.removeEventListener('focus', onInputFocus);
-  };
- });
  // * use effect controlling options list open or close state
  useEffect(() => {
   toggleOptionList(openOptionsList);
@@ -93,11 +83,12 @@ const CompSelect: FC<ICompSelectProps> = ({
     </select>
     <div className='comp-fmel__input-wrapper'>
      <div
-      ref={inputRef}
       className={`comp-fmel__input${className ? ' ' + className : ''}${
        value ? ' not-empty' : ''
       }`}
       onPointerDown={onSelectClick}
+      onBlur={onInputBlur}
+      onFocus={onInputFocus}
       tabIndex={0}
      >
       {value}
@@ -135,10 +126,11 @@ const CompSelect: FC<ICompSelectProps> = ({
    }`}
   >
    <div
-    ref={inputRef}
     className={`comp-input${className ? ' ' + className : ''}${
      value ? ' not-empty' : ''
     }`}
+    onBlur={onInputBlur}
+    onFocus={onInputFocus}
     onPointerDown={onSelectClick}
     tabIndex={0}
    >
