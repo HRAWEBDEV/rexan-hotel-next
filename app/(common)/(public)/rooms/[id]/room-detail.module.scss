@@ -1,0 +1,104 @@
+.room-detail__slider {
+ padding-inline: var(--section-inline-offset);
+ padding-block: var(--gap-2x);
+ background-color: rgb(var(--cl-white-50));
+}
+.room-detail__info {
+ display: flex;
+ flex-wrap: wrap;
+ gap: var(--gap-2x);
+}
+.room-detail__info > * {
+ white-space: nowrap;
+ flex-grow: 1;
+ flex-basis: calc(100% / 3 - 2 * var(--gap-2x));
+}
+.room-detail__plan-container {
+ padding-inline: var(--section-inline-offset);
+ padding-block: var(--gap-2x);
+}
+.room-detail__plan-title,
+.room-detail__table-title {
+ text-align: center;
+}
+.room-detail__facilities {
+ // position: relative;
+ padding-block-start: var(--section-block-offset);
+ padding-inline: var(--section-inline-offset);
+ background-color: rgb(var(--cl-green-700));
+}
+.room-detail__facilities-title {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 0.8em;
+ --comp-header-wing-bg: var(--cl-yellow-500);
+ color: rgb(var(--cl-yellow-500));
+ margin-bottom: 3em;
+}
+.room-detail__facilities-container {
+ position: relative;
+ --facility-row-gap: var(--gap-4x);
+ display: grid;
+ transition: var(--tr-all-normall);
+}
+.room-detail__facilities-view {
+ --circle-radius: 6em;
+ overflow: hidden;
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(min(100%, 9em), 1fr));
+ column-gap: calc(var(--gap-4x) * 2);
+ row-gap: var(--facility-row-gap);
+ width: min(100%, calc(var(--circle-radius) * 15));
+ margin-inline: auto;
+ direction: ltr;
+}
+.facilities__card {
+ --facility-color: rgb(var(--cl-yellow-500));
+ display: grid;
+ color: var(--facility-color);
+ justify-items: center;
+ gap: 0.5em;
+}
+.facilities__card-icon-wrapper {
+ display: grid;
+ place-content: center;
+ height: var(--circle-radius);
+ width: var(--circle-radius);
+ border-radius: 50%;
+ border: 2px solid var(--facility-color);
+}
+.facilities__card-icon {
+ font-size: calc(var(--circle-radius) / 1.8);
+}
+.more-facilities {
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ position: sticky;
+}
+.more-facilities.more {
+ bottom: var(--gap-2x);
+ top: 100%;
+ padding-block-start: var(--gap-2x);
+}
+.more-facilities.less {
+ padding-block-end: var(--gap-2x);
+ margin-block-start: -4em;
+ background-color: rgb(var(--cl-green-700), 0.7);
+}
+.more-facilities__btn {
+ --comp-btn-cl: var(--cl-light-fn);
+ --comp-btn-bg: rgb(var(--cl-green-700));
+ --comp-btn-br-cl: var(--cl-light-fn);
+ --comp-btn-hr-bg: var(--cl-red-accent);
+ --comp-btn-hr-br-cl: var(--cl-red-accent);
+ --comp-btn-ext-cl: rgb(var(--cl-green-700));
+ --comp-btn-ext-bg: var(--cl-light-fn);
+ --comp-btn-ext-hr-bg: var(--cl-red-accent);
+ --comp-btn-ext-hr-cl: var(--cl-light-fn);
+}
+.room-detail__table {
+ padding-inline: calc(var(--section-inline-offset) * 4);
+ padding-block: var(--gap-2x);
+}
