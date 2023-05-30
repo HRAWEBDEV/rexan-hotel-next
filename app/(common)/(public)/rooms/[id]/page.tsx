@@ -4,7 +4,7 @@ import { motion, Variants } from 'framer-motion';
 import styles from './room-detail.module.scss';
 import MultiLngText from '@/app/components/shared/translator/MultiLngText';
 import CompLink from '@/app/components/shared/button-link/CompLink';
-import SpecialTable from '@/app/components/shared/table/SpecialTable';
+import Table from '@/app/components/shared/special-table/Table';
 
 const facilitiesVariants: Variants = {
  isClosed: {
@@ -367,84 +367,72 @@ const RoomsDetail = ({ params }: any) => {
        <span className='header-wing'></span>
       </h2>
      </div>
-     <SpecialTable />
-     <div className='comp-sp-tb__container util-pad'>
-      <div className='comp-sp-tb__res'>
-       <table className='comp-sp-tb'>
-        <thead>
-         <tr>
-          <th>
-           <div className='inner-cell'>
-            <MultiLngText text='شماره دوره' />
-           </div>
-          </th>
-          <th>
-           <div className='inner-cell'>
-            <MultiLngText text='نوع دوره' />
-           </div>
-          </th>
-          <th>
-           <div className='inner-cell'>
-            <MultiLngText text='بازه زمانی' />
-           </div>
-          </th>
-          <th>
-           <div className='inner-cell'>
-            <MultiLngText text='مدت اقامت' />
-           </div>
-          </th>
-          <th>
-           <div className='inner-cell'>
-            <MultiLngText text='قیمت (تومان)' />
-           </div>
-          </th>
-          <th>
-           <div className='inner-cell'>
-            <MultiLngText text='وضعیت' />
-           </div>
-          </th>
-         </tr>
-        </thead>
-        <tbody>
-         <tr>
-          <td>
-           <div className='inner-cell'></div>
-          </td>
-          <td>
-           <div className='inner-cell'></div>
-          </td>
-          <td>
-           <div className='inner-cell' style={{ textAlign: 'right' }}></div>
-          </td>
-          <td>
-           <div className='inner-cell'></div>
-          </td>
-          <td>
-           <div className='inner-cell'></div>
-          </td>
-          <td>
-           <div className='inner-cell util-txt-red'></div>
-           <div className='inner-cell util-txt-gold'>
-            <button>
-             <i className='opt-checkmark util-fn-1-5'></i>
-            </button>
-           </div>
-           {/* <comp-button
-              class="room__times-reserve-btn"
-              class-name="'gold'"
-              text="TmpRoomTime.StatusName"
-              ng-if="TmpRoomTime.StatusID==1"
-              on-click="BuyTimeClicked"
-              overload="TmpRoom"
-              overload2="TmpRoomTime"
-             >
-             </comp-button> */}
-          </td>
-         </tr>
-        </tbody>
-       </table>
-      </div>
-     </div>
+     <Table>
+      <thead>
+       <tr>
+        <th>
+         <div className={styles['inner-cell']}>
+          <MultiLngText text='شماره دوره' />
+         </div>
+        </th>
+        <th>
+         <div className={styles['inner-cell']}>
+          <MultiLngText text='نوع دوره' />
+         </div>
+        </th>
+        <th>
+         <div className={styles['inner-cell']}>
+          <MultiLngText text='بازه زمانی' />
+         </div>
+        </th>
+        <th>
+         <div className={styles['inner-cell']}>
+          <MultiLngText text='مدت اقامت' />
+         </div>
+        </th>
+        <th>
+         <div className={styles['inner-cell']}>
+          <MultiLngText text='قیمت (تومان)' />
+         </div>
+        </th>
+        <th>
+         <div className={styles['inner-cell']}>
+          <MultiLngText text='وضعیت' />
+         </div>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <div className={styles['inner-cell']}></div>
+        </td>
+        <td>
+         <div className={styles['inner-cell']}></div>
+        </td>
+        <td>
+         <div
+          className={styles['inner-cell']}
+          style={{ textAlign: 'right' }}
+         ></div>
+        </td>
+        <td>
+         <div className={styles['inner-cell']}></div>
+        </td>
+        <td>
+         <div className={styles['inner-cell']}></div>
+        </td>
+        <td>
+         <div className='inner-cell util-txt-red'></div>
+         <div className='inner-cell util-txt-gold'>
+          <button>
+           <i className='opt-checkmark util-fn-1-5'></i>
+          </button>
+         </div>
+        </td>
+       </tr>
+      </tbody>
+     </Table>
     </section>
    </div>
   </>

@@ -102,3 +102,26 @@
  padding-inline: calc(var(--section-inline-offset) * 4);
  padding-block: var(--gap-2x);
 }
+thead .inner-cell {
+ padding: var(--comp-sp-tb-inner-pad-block, 0.8em)
+  var(--comp-sp-tb-inner-pad-inline, 0.5em);
+}
+
+.inner-cell {
+ display: flex;
+ justify-content: center;
+ padding: var(--comp-sp-tb-inner-pad-block, 0.2em)
+  var(--comp-sp-tb-inner-pad-inline, 0.2em);
+}
+
+thead :is(td, th):not(:last-child) .inner-cell {
+ border-inline-end: 1px solid
+  var(--comp-sp-tb-br-cl, rgb(var(--cl-white-200), 0.2));
+}
+
+thead :is(td, th):first-child .inner-cell {
+ justify-content: flex-start;
+}
+:is(td, th):not(:last-child) .inner-cell {
+ border-inline-end: 1px solid var(--comp-sp-tb-br-cl, rgb(var(--cl-white-200)));
+}
