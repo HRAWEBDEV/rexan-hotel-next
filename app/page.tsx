@@ -55,7 +55,7 @@ export default function Home() {
    <MasterLayout>
     <div className={styles['master__conatiner']}>
      {/* hero section */}
-     <section className={styles['master__hero-section']}>
+     <section data-home-sections='' className={styles['master__hero-section']}>
       <CompImgSlider
        showNavigators={false}
        showIndicators={false}
@@ -71,7 +71,10 @@ export default function Home() {
       ></CompImgSlider>
      </section>
      {/* quick reserve section */}
-     <section className={styles['quick-reserve__section']}>
+     <section
+      data-home-sections=''
+      className={styles['quick-reserve__section']}
+     >
       <form className={styles['quick-reserve__form']}>
        <div className={styles['quick-reserve__fields']}>
         <div className={styles['quick-reserve__field']}>
@@ -90,7 +93,11 @@ export default function Home() {
       </form>
      </section>
      {/* introduction section */}
-     <section id='introduction' className={styles['intro__section']}>
+     <section
+      data-home-sections=''
+      id='introduction'
+      className={styles['intro__section']}
+     >
       <h1 className={styles['intro__section__title']}>
        <span className='header-wing start'></span>
        <MultiLngText text='با قرارداد مالکیت زمانی رکسان صاحب خانه، در کربلا شوید' />
@@ -107,7 +114,11 @@ export default function Home() {
       </article>
      </section>
      {/* introduction section */}
-     <section id='discovery' className={styles['discovery__section']}>
+     <section
+      data-home-sections=''
+      id='discovery'
+      className={styles['discovery__section']}
+     >
       <h2 className={styles['discover__section-title']}>
        <MultiLngText text='معرفی هتل' />
        <span className='header-wing util-f-grow'></span>
@@ -147,7 +158,11 @@ export default function Home() {
       </article>
      </section>
      {/* times section */}
-     <section id='times' className={styles['plans__section']}>
+     <section
+      data-home-sections=''
+      id='times'
+      className={styles['plans__section']}
+     >
       <h2 className={styles['plans__section-title']}>
        <MultiLngText text='انواع دوره های زمانی هتل رکسان' />
        <span className='header-wing util-f-grow'></span>
@@ -179,7 +194,11 @@ export default function Home() {
       </article>
      </section>
      {/* room types */}
-     <section id='rooms' className={styles['room-types__section']}>
+     <section
+      data-home-sections=''
+      id='rooms'
+      className={styles['room-types__section']}
+     >
       <header className={styles['room-types__header']}>
        <div className={styles['room-types__wrapper']}>
         <h2 className={styles['room-types__title']}>
@@ -278,7 +297,11 @@ export default function Home() {
       </article>
      </section>
      {/* facilities section */}
-     <section id='facilities' className={styles['facilities__section']}>
+     <section
+      data-home-sections=''
+      id='facilities'
+      className={styles['facilities__section']}
+     >
       <h2 className={styles['facilities-section__title']}>
        <span className='header-wing start'></span>
        <MultiLngText
@@ -362,7 +385,11 @@ export default function Home() {
       </article>
      </section>
      {/* news section */}
-     <section id='news' className={styles['news__section']}>
+     <section
+      data-home-sections=''
+      id='news'
+      className={styles['news__section']}
+     >
       <header className={styles['news__header']}>
        <div className={styles['news-header__wrapper']}>
         <h2 className={styles['news__title']}>

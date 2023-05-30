@@ -22,7 +22,7 @@ export default function MasterLayout({
     {withMasterHeader && <MasterHeader />}
     <div className='master__content'>
      {withMasterSidenav && <MasterSidenav />}
-     <main className='master__main'>
+     <main data-master-main='' className='master__main'>
       {children}
       {withMasterFooter && <MasterFooter />}
      </main>

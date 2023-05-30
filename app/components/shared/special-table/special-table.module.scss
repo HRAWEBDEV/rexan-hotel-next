@@ -1,0 +1,58 @@
+.comp-sp-tb__res {
+ max-height: var(--comp-sp-tb-max-height, unset);
+ padding-inline: 1px;
+ overflow: auto;
+}
+
+.comp-sp-tb {
+ width: 100%;
+ border-collapse: separate;
+ border-spacing: var(--comp-sp-tb-cell-inline-space, 0)
+  var(--comp-sp-tb-cell-block-space, 4px);
+}
+// * api
+.comp-sp-tb.has-fixed-head thead :is(td, th) {
+ position: sticky;
+ top: var(--comp-sp-tb-cell-top, 0);
+}
+
+.comp-sp-tb.has-fixed-foot tfoot :is(td, th) {
+ position: sticky;
+ bottom: var(--comp-sp-tb-cell-bottom, 0);
+}
+
+.comp-sp-tb thead :is(td, th) {
+ background-color: var(--comp-sp-tb-thead-cell-bg, rgb(var(--cl-cyan-600)));
+ color: var(--comp-sp-tb-thead-cell-cl, var(--cl-light-fn));
+}
+
+.comp-sp-tb tr {
+ outline: 1px solid var(--comp-sp-tb-br-cl, rgb(var(--cl-white-200)));
+ border-radius: var(--br-ra-main);
+}
+
+.comp-sp-tb :is(td, th) {
+ font-weight: var(--fn-w-medium);
+ vertical-align: middle;
+ background-color: var(--comp-sp-tb-cell-bg, rgb(var(--cl-white)));
+}
+
+.comp-sp-tb tbody :is(td, th) {
+ font-weight: var(--fn-w-medium);
+}
+
+.comp-sp-tb :is(td, th):not(:last-child) {
+ padding: var(--comp-sp-tb-cell-pad-block, 0.2em)
+  var(--comp-sp-tb-cell-pad-inline, 0.5em);
+}
+
+.comp-sp-tb :is(td, th):first-child {
+ border-start-start-radius: var(--br-ra-main);
+ border-end-start-radius: var(--br-ra-main);
+}
+
+.comp-sp-tb :is(td, th):last-child {
+ border-end-end-radius: var(--br-ra-main);
+ border-start-end-radius: var(--br-ra-main);
+}
+// *

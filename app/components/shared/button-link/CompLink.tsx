@@ -8,7 +8,9 @@ interface ICompLinkProps
  className?: string;
  withLogo?: boolean;
  vairiants?: TCompButtonVariants;
+ issueType?: 'inner' | 'normal';
 }
+// * there is an issue with next js inner page navigation links (solved with temporary issueType == inner)
 const CompLink: FC<ICompLinkProps> = function ({
  href,
  prefetch,
@@ -20,8 +22,29 @@ const CompLink: FC<ICompLinkProps> = function ({
  withLogo,
  className,
  vairiants,
+ issueType,
  ...linkProps
 }) {
+ if (issueType == 'inner')
+  return (
+   <a
+    href={typeof href == 'string' ? href : ''}
+    className={`comp-btn${className ? ' ' + className : ''}${
+     vairiants ? ' ' + vairiants : ''
+    }`}
+    {...linkProps}
+   >
+    <div className='comp-btn__info'>
+     <div className='comp-btn__txt'>{children}</div>
+    </div>
+    {withLogo && (
+     <div className='comp-btn__ext'>
+      <i className='comp-btn__logo opt-ico-r'></i>
+     </div>
+    )}
+   </a>
+  );
+ // *
  return (
   <NextLink
    href={href}
