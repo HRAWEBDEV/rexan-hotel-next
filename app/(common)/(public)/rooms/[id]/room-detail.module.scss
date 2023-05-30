@@ -22,7 +22,7 @@
  text-align: center;
 }
 .room-detail__facilities {
- position: relative;
+ // position: relative;
  padding-block-start: var(--section-block-offset);
  padding-inline: var(--section-inline-offset);
  background-color: rgb(var(--cl-green-700));
@@ -37,6 +37,7 @@
  margin-bottom: 3em;
 }
 .room-detail__facilities-container {
+ position: relative;
  --facility-row-gap: var(--gap-4x);
  display: grid;
  transition: var(--tr-all-normall);
@@ -71,37 +72,31 @@
  font-size: calc(var(--circle-radius) / 1.8);
 }
 .more-facilities {
- background-color: rgb(var(--cl-green-700), 0.7);
  width: 100%;
+ display: flex;
  justify-content: center;
+ position: sticky;
 }
 .more-facilities.more {
- position: sticky;
  bottom: var(--gap-2x);
  top: 100%;
  padding-block-start: var(--gap-2x);
 }
 .more-facilities.less {
- position: absolute;
- bottom: 0;
- left: 50%;
- transform: translateX(-50%);
- padding-block: var(--gap-2x);
+ padding-block-end: var(--gap-2x);
+ margin-block-start: -4em;
+ background-color: rgb(var(--cl-green-700), 0.7);
 }
-.more-facilities__btn .comp-btn {
+.more-facilities__btn {
  --comp-btn-cl: var(--cl-light-fn);
  --comp-btn-bg: rgb(var(--cl-green-700));
- overflow: hidden;
- border-color: var(--cl-light-fn);
-}
-.more-facilities__btn .comp-btn .comp-btn__ext {
- background-color: var(--cl-light-fn);
- color: rgb(var(--cl-green-700));
- transition: var(--tr-all-normall);
-}
-.more-facilities__btn .comp-btn:is(:hover, :focus) > .comp-btn__ext {
- background-color: var(--cl-red-accent);
- color: var(--cl-light-fn);
+ --comp-btn-br-cl: var(--cl-light-fn);
+ --comp-btn-hr-bg: var(--cl-red-accent);
+ --comp-btn-hr-br-cl: var(--cl-red-accent);
+ --comp-btn-ext-cl: rgb(var(--cl-green-700));
+ --comp-btn-ext-bg: var(--cl-light-fn);
+ --comp-btn-ext-hr-bg: var(--cl-red-accent);
+ --comp-btn-ext-hr-cl: var(--cl-light-fn);
 }
 .room-detail__table {
  padding-inline: calc(var(--section-inline-offset) * 4);

@@ -4,8 +4,8 @@
  color: var(--comp-btn-cl);
  background-color: var(--comp-btn-bg);
  border: 1px solid var(--comp-btn-br-cl);
- transition: var(--tr-all-normall);
  border-radius: var(--br-ra-main);
+ transition: var(--tr-all-normall);
 }
 
 .comp-btn:not(.no-hover):is(:hover, :focus, .is-selected) {
@@ -13,7 +13,10 @@
  background-color: var(--comp-btn-hr-bg);
  border: 1px solid var(--comp-btn-hr-br-cl);
 }
-
+.comp-btn:not(.no-hover):is(:hover, :focus, .is-selected) .comp-btn__ext {
+ color: var(--comp-btn-ext-hr-cl, var(--comp-btn-hr-cl));
+ background-color: var(--comp-btn-ext-hr-bg, var(--comp-btn-hr-bg));
+}
 .comp-btn,
 .comp-btn__info,
 .comp-btn__ext {
@@ -37,8 +40,13 @@
 }
 
 .comp-btn__ext {
+ transition: var(--tr-all-normall);
  border-inline-start: 1px solid rgb(var(--cl-yellow-500));
  padding-inline: 0.3em;
+ background-color: var(--comp-btn-ext-bg, var(--comp-btn-bg));
+ color: var(--comp-btn-ext-cl, var(--comp-btn-cl));
+ border-start-end-radius: var(--br-ra-main);
+ border-end-end-radius: var(--br-ra-main);
 }
 
 .comp-btn__logo {
